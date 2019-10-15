@@ -10,3 +10,14 @@ C:\Projects\Savings2\Savings2\obj\Debug\Savings2.exe
 C:\Projects\Savings2\Savings2\obj\Debug\Savings2.pdb
 C:\Projects\Savings2\Savings2\obj\Debug\Savings2.Register.resources
 C:\Projects\Savings2\Savings2\obj\Debug\Savings2.Login.resources
+C:\GitHub\SavingsAccount\Savings2\Savings2\bin\Debug\Savings2.exe.config
+C:\GitHub\SavingsAccount\Savings2\Savings2\bin\Debug\Savings2.exe
+C:\GitHub\SavingsAccount\Savings2\Savings2\bin\Debug\Savings2.pdb
+C:\GitHub\SavingsAccount\Savings2\Savings2\obj\Debug\Savings2.csprojAssemblyReference.cache
+C:\GitHub\SavingsAccount\Savings2\Savings2\obj\Debug\Savings2.Login.resources
+C:\GitHub\SavingsAccount\Savings2\Savings2\obj\Debug\Savings2.Properties.Resources.resources
+C:\GitHub\SavingsAccount\Savings2\Savings2\obj\Debug\Savings2.Register.resources
+C:\GitHub\SavingsAccount\Savings2\Savings2\obj\Debug\Savings2.Savings.resources
+C:\GitHub\SavingsAccount\Savings2\Savings2\obj\Debug\Savings2.csproj.GenerateResource.cache
+C:\GitHub\SavingsAccount\Savings2\Savings2\obj\Debug\Savings2.exe
+C:\GitHub\SavingsAccount\Savings2\Savings2\obj\Debug\Savings2.pdb
