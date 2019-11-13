@@ -114,7 +114,7 @@ namespace Savings2
             if (dr.Read())
             {
                 string balance = (dr["Balance"].ToString());
-                currBalTextBox.AppendText(balance + ".00");
+                currBalTextBox.AppendText(balance);
             }
             con.Close();
             amtTextBox.Text = "";

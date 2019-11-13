@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
 
 namespace Savings2
 {
@@ -29,7 +30,7 @@ namespace Savings2
         private void LoginButton_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Login WHERE USERNAME ='" + usernameTextBox.Text.Trim() + "' and PASSWORD='" + passwordTextBox.Text.Trim() + "'", con);
+            SqlDataAdapter sda = new SqlDataAdapter("SELECT UserID FROM [dbo].[Login] WHERE LoginName='" + usernameTextBox.Text + "' AND PasswordHash=HASHBYTES('SHA2_512', N'" + passwordTextBox.Text + "')", con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             if (dt.Rows.Count == 1)
@@ -41,8 +42,6 @@ namespace Savings2
                 savings.Show();
                 this.Owner = savings;
                 this.Hide();
-
-
             }
             else
             {

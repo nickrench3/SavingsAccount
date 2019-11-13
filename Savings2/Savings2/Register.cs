@@ -8,13 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
 
 namespace Savings2
 {
     public partial class Register : Form
     {
         private SqlConnection con = new SqlConnection(@"Data Source=NICKRENTSCHLER\SQLEXPRESS;Initial Catalog=Savings;Integrated Security=True;Pooling=False");
-        private SqlCommand cmd;
 
         public Register()
         {
@@ -23,21 +23,28 @@ namespace Savings2
 
         private void Button2_Click(object sender, EventArgs e)
         {
+
             con.Open();
-            SqlDataAdapter sda = new SqlDataAdapter("SELECT username FROM Login WHERE USERNAME ='" + usernameTextBox.Text.Trim() + "'", con);
+            SqlDataAdapter sda = new SqlDataAdapter("SELECT LoginName FROM Login WHERE LoginName =' " + usernameTextBox.Text.Trim() + " ' ", con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             if (dt.Rows.Count == 1)
             {
                 MessageBox.Show("Username is already taken, please try again");
+                con.Close();
             }
             else
             {
+                con.Close();
+                con.Open();
                 string message = "Success";
                 string title = "Registration";
                 MessageBoxButtons buttons = MessageBoxButtons.OK;
                 MessageBox.Show(message, title, buttons, MessageBoxIcon.Information);
-                cmd = new SqlCommand("INSERT LOGIN VALUES('" + usernameTextBox.Text.Trim() + "', '" + passwordTextBox.Text.Trim() + "')", con);
+                SqlCommand cmd = new SqlCommand("dbo.uspAddUser", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@pLogin", usernameTextBox.Text);
+                cmd.Parameters.AddWithValue("@pPassword", passwordTextBox.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();
                 Login form1 = new Login();
@@ -45,14 +52,14 @@ namespace Savings2
                 this.Owner = form1;
                 this.Hide();
             }
-            con.Close();
-               
-           
+
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+       
     }
 }
