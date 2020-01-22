@@ -30,7 +30,7 @@ namespace Savings2
         private void LoginButton_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlDataAdapter sda = new SqlDataAdapter("SELECT UserID FROM [dbo].[Login] WHERE LoginName='" + usernameTextBox.Text + "' AND PasswordHash=HASHBYTES('SHA2_512', N'" + passwordTextBox.Text + "')", con);
+            SqlDataAdapter sda = new SqlDataAdapter("SELECT UserID FROM [dbo].[Login] WHERE LoginName='" + usernameTextBox.Text + "' AND PasswordHash=HASHBYTES('SHA2_512', N'" + passwordTextBox.Text + "') AND Added='Y'", con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             if (dt.Rows.Count == 1)
@@ -45,7 +45,8 @@ namespace Savings2
             }
             else
             {
-                MessageBox.Show("Please check your username and password");
+                
+                MessageBox.Show("Your account has not been activated yet or check your username and password", "Error");
             }
             con.Close();
         }

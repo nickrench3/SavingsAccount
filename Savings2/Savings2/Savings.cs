@@ -88,8 +88,8 @@ namespace Savings2
 
             if (withdrawlCheckBox.Checked == true)
             {
-                depositCheckBox.Checked = true;
-                withdrawlCheckBox.Checked = false;
+                depositCheckBox.Checked = false;
+                withdrawlCheckBox.Checked = true;
                 con.Open();
                 amountInput = amtTextBox.Text;
                 amount = Convert.ToInt32(amountInput);
@@ -103,8 +103,29 @@ namespace Savings2
             {
 
             }
+            RecordEvent();
         }
 
+        private void RecordEvent()
+        {
+            con.Open();;
+            string beforeAmount = currBalTextBox.Text;
+            string amountChanged = amtTextBox.Text;
+            string newAmount = newBalTextBox.Text;
+            if (depositCheckBox.Checked == true)
+            {
+                cmd = new SqlCommand("INSERT INTO SavingsEventLog VALUES('" + beforeAmount + "', 'D', '" + amountChanged + "', '" + newAmount + "', '" + DateTime.Now + "')", con);
+            }
+            else
+            {
+                if (withdrawlCheckBox.Checked == true)
+                {
+                    cmd = new SqlCommand("INSERT INTO SavingsEventLog VALUES('" + beforeAmount + "', 'W', '" + amountChanged + "', '" + newAmount + "', '" + DateTime.Now + "')", con);
+                }
+            }
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
         private void ClearButton_Click(object sender, EventArgs e)
         {
             currBalTextBox.Clear();

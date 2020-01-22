@@ -220,6 +220,7 @@
             this.ClientSize = new System.Drawing.Size(489, 450);
             this.Controls.Add(this.tabControl1);
             this.Name = "Savings";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Savings";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

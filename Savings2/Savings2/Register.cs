@@ -25,7 +25,7 @@ namespace Savings2
         {
 
             con.Open();
-            SqlDataAdapter sda = new SqlDataAdapter("SELECT LoginName FROM Login WHERE LoginName =' " + usernameTextBox.Text.Trim() + " ' ", con);
+            SqlDataAdapter sda = new SqlDataAdapter("SELECT LoginName FROM Login WHERE LoginName ='" + usernameTextBox.Text.Trim() + "'", con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             if (dt.Rows.Count == 1)
@@ -37,7 +37,7 @@ namespace Savings2
             {
                 con.Close();
                 con.Open();
-                string message = "Success";
+                string message = "Success, please wait while admin approves account";
                 string title = "Registration";
                 MessageBoxButtons buttons = MessageBoxButtons.OK;
                 MessageBox.Show(message, title, buttons, MessageBoxIcon.Information);
