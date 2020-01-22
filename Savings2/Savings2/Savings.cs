@@ -51,8 +51,6 @@ namespace Savings2
             int amount;
             int finalBalance;
             int newBalance = 0;
-            string yes = "true";
-            string no = "false";
 
             newBalTextBox.Clear();
             con.Open();
@@ -165,6 +163,7 @@ namespace Savings2
         {
             string message = "Balance updated";
             string title = "Savings Account Admin";
+            string beforeAmount = currBalTextBox.Text;
             MessageBox.Show(message, title);
             currBalTextBox.Clear();
             con.Open();
@@ -172,6 +171,10 @@ namespace Savings2
             int amount = Convert.ToInt32(amountInput);
             currBalTextBox.AppendText(amount.ToString("0.00"));
             cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + amount + "'", con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            con.Open();
+            cmd = new SqlCommand("INSERT INTO SavingsEventLog VALUES('" + beforeAmount + "', 'A', '" + "" + "', '" + amountInput + "', '" + DateTime.Now + "')", con);
             cmd.ExecuteNonQuery();
             con.Close();
         }
