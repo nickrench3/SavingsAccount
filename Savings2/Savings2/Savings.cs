@@ -14,6 +14,7 @@ namespace Savings2
     public partial class Savings : Form
     {
         private SqlConnection con = new SqlConnection(@"Data Source=NICKRENTSCHLER\SQLEXPRESS;Initial Catalog=Savings;Integrated Security=True;Pooling=False");
+        private SqlConnection conSecure = new SqlConnection(@"Data Source=NICKRENTSCHLER\SQLEXPRESS;Initial Catalog=Security;Integrated Security=True;Pooling=False");
         private SqlCommand cmd;
 
         public Savings()
@@ -29,8 +30,8 @@ namespace Savings2
 
             }
             con.Close();
-            con.Open();
-            cmd = new SqlCommand("SELECT TOP 1 * FROM LoginEventLog ORDER BY ExecutionTime desc", con);
+            conSecure.Open();
+            cmd = new SqlCommand("SELECT TOP 1 * FROM LoginEventLog ORDER BY ExecutionTime desc", conSecure);
             SqlDataReader dr2 = cmd.ExecuteReader();
             if (dr2.Read())
             {
@@ -41,7 +42,7 @@ namespace Savings2
                 }
 
             }
-            con.Close();
+            conSecure.Close();
            
         }
 

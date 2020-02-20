@@ -14,7 +14,7 @@ namespace Savings2
 {
     public partial class Login : Form
     {
-        private SqlConnection con = new SqlConnection(@"Data Source=NICKRENTSCHLER\SQLEXPRESS;Initial Catalog=Savings;Integrated Security=True;Pooling=False");
+        private SqlConnection conSecure = new SqlConnection(@"Data Source=NICKRENTSCHLER\SQLEXPRESS;Initial Catalog=Security;Integrated Security=True;Pooling=False");
         private SqlCommand cmd;
 
         public Login()
@@ -29,15 +29,15 @@ namespace Savings2
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            con.Open();
-            SqlDataAdapter sda = new SqlDataAdapter("SELECT UserID FROM [dbo].[Login] WHERE LoginName='" + usernameTextBox.Text + "' AND PasswordHash=HASHBYTES('SHA2_512', N'" + passwordTextBox.Text + "') AND Added='Y'", con);
+            conSecure.Open();
+            SqlDataAdapter sda = new SqlDataAdapter("SELECT UserID FROM [dbo].[Login] WHERE LoginName='" + usernameTextBox.Text + "' AND PasswordHash=HASHBYTES('SHA2_512', N'" + passwordTextBox.Text + "') AND Added='Y'", conSecure);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             if (dt.Rows.Count == 1)
             {
-                cmd = new SqlCommand("INSERT LOGINEVENTLOG VALUES('" + usernameTextBox.Text.Trim() + "', '" + DateTime.Now + "')", con);
+                cmd = new SqlCommand("INSERT LOGINEVENTLOG VALUES('" + usernameTextBox.Text.Trim() + "', '" + DateTime.Now + "', 'Savings App')", conSecure);
                 cmd.ExecuteNonQuery();
-                con.Close();
+                conSecure.Close();
                 Savings savings = new Savings();
                 savings.Show();
                 this.Owner = savings;
@@ -48,7 +48,7 @@ namespace Savings2
                 
                 MessageBox.Show("Your account has not been activated yet or check your username and password", "Error");
             }
-            con.Close();
+            conSecure.Close();
         }
 
         private void Savings_FormClosed(object send, FormClosedEventArgs e)
