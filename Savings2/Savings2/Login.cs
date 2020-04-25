@@ -29,6 +29,7 @@ namespace Savings2
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
+            bool result;
             conSecure.Open();
             SqlDataAdapter sda = new SqlDataAdapter("SELECT UserID FROM [dbo].[Login] WHERE LoginName='" + usernameTextBox.Text + "' AND PasswordHash=HASHBYTES('SHA2_512', N'" + passwordTextBox.Text + "') AND Added='Y'", conSecure);
             DataTable dt = new DataTable();
@@ -45,10 +46,42 @@ namespace Savings2
             }
             else
             {
-                
-                MessageBox.Show("Your account has not been activated yet or check your username and password", "Error");
+                result = wrongPassword();
+                if (result == true)
+                {
+                    MessageBox.Show("Your password is incorrect", "Error");
+                }
+                else
+                {
+                    MessageBox.Show("You do not have an account or the account still needs approval. ", "Error");
+                }
             }
             conSecure.Close();
+        }
+
+        private Boolean wrongPassword()
+        {
+            SqlDataAdapter sda1 = new SqlDataAdapter("SELECT UserID FROM [dbo].[Login] WHERE LoginName='" + usernameTextBox.Text + "'", conSecure);
+            DataTable dt = new DataTable();
+            sda1.Fill(dt);
+            if (dt.Rows.Count == 1)
+            {
+                SqlDataAdapter sda2 = new SqlDataAdapter("SELECT UserID FROM [dbo].[Login] WHERE LoginName='" + usernameTextBox.Text + "' AND PasswordHash = HASHBYTES('SHA2_512', N'" + passwordTextBox.Text + "')", conSecure);
+                DataTable dt2 = new DataTable();
+                sda2.Fill(dt2);
+                if (dt2.Rows.Count == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private void Savings_FormClosed(object send, FormClosedEventArgs e)
