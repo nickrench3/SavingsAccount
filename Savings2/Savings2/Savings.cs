@@ -14,41 +14,33 @@ namespace Savings2
     public partial class Savings : Form
     {
         private SqlConnection con = new SqlConnection(@"Data Source=NICKRENTSCHLER\SQLEXPRESS;Initial Catalog=Savings;Integrated Security=True;Pooling=False");
-        private SqlConnection conSecure = new SqlConnection(@"Data Source=NICKRENTSCHLER\SQLEXPRESS;Initial Catalog=Security;Integrated Security=True;Pooling=False");
         private SqlCommand cmd;
 
         public Savings()
         {
+            //userName variable to be used to determine access to Admin tab
+            string userName;
             InitializeComponent();
             con.Open();
+            //Select's balance from table for preset
             cmd = new SqlCommand("SELECT Balance FROM SavingsAcct", con);
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read())
             {
                 string balance = (dr["Balance"].ToString());
                 currBalTextBox.AppendText(balance + ".00");
-
             }
             con.Close();
-            conSecure.Open();
-            cmd = new SqlCommand("SELECT TOP 1 * FROM LoginEventLog ORDER BY ExecutionTime desc", conSecure);
-            SqlDataReader dr2 = cmd.ExecuteReader();
-            if (dr2.Read())
+            //Gets userName from the Login page and determines if tabPage should be removed
+            userName = Login.userName;
+            if (userName != "nickrench3")
             {
-                string userName = (dr2["username"].ToString());
-                if (userName != "nickrench3")
-                {
-                    tabControl1.TabPages.Remove(tabPage2);
-                }
-
-            }
-            conSecure.Close();
-           
+                tabControl1.TabPages.Remove(tabPage2);
+            }   
         }
 
         private void EnterButton_Click(object sender, EventArgs e)
         {
-            string amountInput;
             int amount;
             int finalBalance;
             int newBalance = 0;
@@ -65,14 +57,12 @@ namespace Savings2
             }
             con.Close();
 
-
             if (depositCheckBox.Checked == true)
             {
                 depositCheckBox.Checked = true;
                 withdrawlCheckBox.Checked = false;
                 con.Open();
-                amountInput = amtTextBox.Text;
-                amount = Convert.ToInt32(amountInput);
+                amount = Convert.ToInt32(amtTextBox.Text);
                 finalBalance = newBalance + amount;
                 newBalTextBox.AppendText(finalBalance.ToString("0.00"));
                 cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "'", con);
@@ -81,26 +71,18 @@ namespace Savings2
             }
             else
             {
-
-            }
-
-
-            if (withdrawlCheckBox.Checked == true)
-            {
-                depositCheckBox.Checked = false;
-                withdrawlCheckBox.Checked = true;
-                con.Open();
-                amountInput = amtTextBox.Text;
-                amount = Convert.ToInt32(amountInput);
-                finalBalance = newBalance - amount;
-                newBalTextBox.AppendText(finalBalance.ToString("0.00"));
-                cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "'", con);
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
-            else
-            {
-
+                if (withdrawlCheckBox.Checked == true)
+                {
+                    depositCheckBox.Checked = false;
+                    withdrawlCheckBox.Checked = true;
+                    con.Open();
+                    amount = Convert.ToInt32(amtTextBox.Text);
+                    finalBalance = newBalance - amount;
+                    newBalTextBox.AppendText(finalBalance.ToString("0.00"));
+                    cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "'", con);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
             }
             RecordEvent();
         }
@@ -111,15 +93,16 @@ namespace Savings2
             string beforeAmount = currBalTextBox.Text;
             string amountChanged = amtTextBox.Text;
             string newAmount = newBalTextBox.Text;
+            string memoText = memoTextBox.Text;
             if (depositCheckBox.Checked == true)
             {
-                cmd = new SqlCommand("INSERT INTO SavingsEventLog VALUES('" + beforeAmount + "', 'D', '" + amountChanged + "', '" + newAmount + "', '" + DateTime.Now + "')", con);
+                cmd = new SqlCommand("INSERT INTO SavingsEventLog VALUES('" + beforeAmount + "', 'D', '" + amountChanged + "', '" + newAmount + "', '" + DateTime.Now + "', '" + memoText + "')", con);
             }
             else
             {
                 if (withdrawlCheckBox.Checked == true)
                 {
-                    cmd = new SqlCommand("INSERT INTO SavingsEventLog VALUES('" + beforeAmount + "', 'W', '" + amountChanged + "', '" + newAmount + "', '" + DateTime.Now + "')", con);
+                    cmd = new SqlCommand("INSERT INTO SavingsEventLog VALUES('" + beforeAmount + "', 'W', '" + amountChanged + "', '" + newAmount + "', '" + DateTime.Now + "', '" + memoText + "')", con);
                 }
             }
             cmd.ExecuteNonQuery();
@@ -128,6 +111,7 @@ namespace Savings2
         private void ClearButton_Click(object sender, EventArgs e)
         {
             currBalTextBox.Clear();
+            memoTextBox.Clear();
             con.Open();
             cmd = new SqlCommand("SELECT Balance FROM SavingsAcct", con);
             SqlDataReader dr = cmd.ExecuteReader();
@@ -140,6 +124,8 @@ namespace Savings2
             amtTextBox.Text = "";
             newBalTextBox.Text = "";
             adminTextBox.Text = "";
+            depositCheckBox.Checked = false;
+            withdrawlCheckBox.Checked = false;
         }
 
         private void DepositCheckBox_Click_1(object sender, EventArgs e)
