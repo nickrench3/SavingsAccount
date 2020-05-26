@@ -21,6 +21,7 @@ namespace Savings2
             //userName variable to be used to determine access to Admin tab
             string userName;
             InitializeComponent();
+            depositCheckBox.Checked = true;
             con.Open();
             //Select's balance from table for preset
             cmd = new SqlCommand("SELECT Balance FROM SavingsAcct", con);
@@ -45,43 +46,50 @@ namespace Savings2
             int finalBalance;
             int newBalance = 0;
 
-            newBalTextBox.Clear();
-            con.Open();
-            cmd = new SqlCommand("SELECT Balance FROM SavingsAcct", con);
-            SqlDataReader dr = cmd.ExecuteReader();
-            if (dr.Read())
+            if (amtTextBox.Text == "")
             {
-                string balance = (dr["Balance"].ToString());
-                newBalance = Convert.ToInt32(balance);
-
-            }
-            con.Close();
-
-            if (depositCheckBox.Checked == true)
-            {
-                depositCheckBox.Checked = true;
-                withdrawlCheckBox.Checked = false;
-                con.Open();
-                amount = Convert.ToInt32(amtTextBox.Text);
-                finalBalance = newBalance + amount;
-                newBalTextBox.AppendText(finalBalance.ToString("0.00"));
-                cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "'", con);
-                cmd.ExecuteNonQuery();
-                con.Close();
+                MessageBox.Show("No Amount Entered.");
             }
             else
             {
-                if (withdrawlCheckBox.Checked == true)
+                newBalTextBox.Clear();
+                con.Open();
+                cmd = new SqlCommand("SELECT Balance FROM SavingsAcct", con);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
                 {
-                    depositCheckBox.Checked = false;
-                    withdrawlCheckBox.Checked = true;
+                    string balance = (dr["Balance"].ToString());
+                    newBalance = Convert.ToInt32(balance);
+
+                }
+                con.Close();
+
+                if (depositCheckBox.Checked == true)
+                {
+                    depositCheckBox.Checked = true;
+                    withdrawlCheckBox.Checked = false;
                     con.Open();
                     amount = Convert.ToInt32(amtTextBox.Text);
-                    finalBalance = newBalance - amount;
+                    finalBalance = newBalance + amount;
                     newBalTextBox.AppendText(finalBalance.ToString("0.00"));
                     cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "'", con);
                     cmd.ExecuteNonQuery();
                     con.Close();
+                }
+                else
+                {
+                    if (withdrawlCheckBox.Checked == true)
+                    {
+                        depositCheckBox.Checked = false;
+                        withdrawlCheckBox.Checked = true;
+                        con.Open();
+                        amount = Convert.ToInt32(amtTextBox.Text);
+                        finalBalance = newBalance - amount;
+                        newBalTextBox.AppendText(finalBalance.ToString("0.00"));
+                        cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "'", con);
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                    }
                 }
             }
             RecordEvent();
@@ -108,6 +116,7 @@ namespace Savings2
             cmd.ExecuteNonQuery();
             con.Close();
         }
+
         private void ClearButton_Click(object sender, EventArgs e)
         {
             currBalTextBox.Clear();
@@ -128,24 +137,6 @@ namespace Savings2
             withdrawlCheckBox.Checked = false;
         }
 
-        private void DepositCheckBox_Click_1(object sender, EventArgs e)
-        {
-            if (depositCheckBox.Checked == true)
-            {
-                depositCheckBox.Checked = true;
-                withdrawlCheckBox.Checked = false;
-            }
-        }
-
-        private void WithdrawlCheckBox_Click_1(object sender, EventArgs e)
-        {
-            if (withdrawlCheckBox.Checked == true)
-            {
-                depositCheckBox.Checked = false;
-                withdrawlCheckBox.Checked = true;
-            }
-        }
-
         private void AdminEnterButton_Click(object sender, EventArgs e)
         {
             string message = "Balance updated";
@@ -164,6 +155,16 @@ namespace Savings2
             cmd = new SqlCommand("INSERT INTO SavingsEventLog VALUES('" + beforeAmount + "', 'A', '" + "" + "', '" + amountInput + "', '" + DateTime.Now + "')", con);
             cmd.ExecuteNonQuery();
             con.Close();
+        }
+
+        private void depositCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            withdrawlCheckBox.Checked = !depositCheckBox.Checked;
+        }
+
+        private void withdrawlCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            depositCheckBox.Checked = !withdrawlCheckBox.Checked;
         }
     }
 }
