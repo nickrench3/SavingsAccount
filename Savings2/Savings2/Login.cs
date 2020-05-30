@@ -17,6 +17,7 @@ namespace Savings2
         private SqlConnection conSecure = new SqlConnection(@"Data Source=NICKRENTSCHLER\SQLEXPRESS;Initial Catalog=Security;Integrated Security=True;Pooling=False");
         private SqlCommand cmd;
         public static string userName;
+        public bool result;
 
         public Login()
         {
@@ -31,9 +32,8 @@ namespace Savings2
         private void LoginButton_Click(object sender, EventArgs e)
         {
             userName = usernameTextBox.Text;
-            bool result;
             conSecure.Open();
-            SqlDataAdapter sda = new SqlDataAdapter("SELECT UserID FROM [dbo].[Login] WHERE LoginName='" + usernameTextBox.Text + "' AND PasswordHash=HASHBYTES('SHA2_512', N'" + passwordTextBox.Text + "') AND Added='Y'", conSecure);
+            SqlDataAdapter sda = new SqlDataAdapter("SELECT UserID FROM [dbo].[Login] WHERE LoginName='" + usernameTextBox.Text + "' AND PasswordHash=HASHBYTES('SHA2_512', N'" + passwordTextBox.Text + "') AND Added='Y' and Savings = 1", conSecure);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             if (dt.Rows.Count == 1)
@@ -55,7 +55,7 @@ namespace Savings2
                 }
                 else
                 {
-                    MessageBox.Show("You do not have an account or the account still needs approval. ", "Error");
+                    MessageBox.Show("You do not have an account or you do not have access. ", "Error");
                 }
             }
             conSecure.Close();
