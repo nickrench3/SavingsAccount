@@ -14,7 +14,7 @@ namespace Savings2
 {
     public partial class Login : Form
     {
-        private SqlConnection conSecure = new SqlConnection(@"Data Source=NICKRENTSCHLER\SQLEXPRESS;Initial Catalog=Security;Integrated Security=True;Pooling=False");
+        private SqlConnection conSecure = new SqlConnection(@"Data Source=NICKRENTSCHLER\SQLEXPRESS01;Initial Catalog=Security;Integrated Security=True;Pooling=False");
         private SqlCommand cmd;
         public static string userName;
         public bool result;

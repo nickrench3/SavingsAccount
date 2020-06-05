@@ -13,7 +13,7 @@ namespace Savings2
 {
     public partial class Savings : Form
     {
-        private SqlConnection con = new SqlConnection(@"Data Source=NICKRENTSCHLER\SQLEXPRESS;Initial Catalog=Savings;Integrated Security=True;Pooling=False");
+        private SqlConnection con = new SqlConnection(@"Data Source=NICKRENTSCHLER\SQLEXPRESS01;Initial Catalog=Savings;Integrated Security=True;Pooling=False");
         private SqlCommand cmd;
 
         public Savings()
