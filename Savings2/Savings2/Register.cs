@@ -21,7 +21,7 @@ namespace Savings2
             InitializeComponent();
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private void registerButton_Click(object sender, EventArgs e)
         {
 
             conSecure.Open();
@@ -47,9 +47,9 @@ namespace Savings2
                 cmd.Parameters.AddWithValue("@pPassword", passwordTextBox.Text);
                 cmd.ExecuteNonQuery();
                 conSecure.Close();
-                Login form1 = new Login();
-                form1.Show();
-                this.Owner = form1;
+                Login login = new Login();
+                login.Show();
+                this.Owner = login;
                 this.Hide();
             }
 
@@ -59,7 +59,5 @@ namespace Savings2
         {
             this.Close();
         }
-
-       
     }
 }

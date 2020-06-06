@@ -18,10 +18,12 @@ namespace Savings2
 
         public Savings()
         {
-            //userName variable to be used to determine access to Admin tab
             string userName;
+
             InitializeComponent();
+
             depositCheckBox.Checked = true;
+
             con.Open();
             //Select's balance from table for preset
             cmd = new SqlCommand("SELECT Balance FROM SavingsAcct", con);
@@ -32,12 +34,15 @@ namespace Savings2
                 currBalTextBox.AppendText(balance + ".00");
             }
             con.Close();
+
             //Gets userName from the Login page and determines if tabPage should be removed
             userName = Login.userName;
             if (userName != "nickrench3")
             {
                 tabControl1.TabPages.Remove(tabPage2);
-            }   
+                tabControl1.TabPages.Remove(tabPage3);
+            }
+            GetHistory();
         }
 
         private void EnterButton_Click(object sender, EventArgs e)
@@ -93,6 +98,20 @@ namespace Savings2
                 }
             }
             RecordEvent();
+            GetHistory();
+        }
+
+        private void GetHistory()
+        {
+            string SQL = "SELECT BeforeBalance as [Before], [Transfer], Amount, NewBalance as New, CONVERT(date, ExecutionTime) as [Date], Memo FROM SavingsEventLog ORDER BY ExecutionTime DESC";
+            cmd = new SqlCommand(SQL, con);
+            con.Open();
+            DataTable table = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(table);
+            HistoryDataGridView.DataSource = table;
+            HistoryDataGridView.AutoResizeColumns();
+            con.Close();
         }
 
         private void RecordEvent()

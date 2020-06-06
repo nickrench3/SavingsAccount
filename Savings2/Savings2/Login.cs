@@ -92,7 +92,7 @@ namespace Savings2
             
         }
 
-        private void Button3_Click(object sender, EventArgs e)
+        private void registerButton_Click(object sender, EventArgs e)
         {
             Register register = new Register();
             register.Show();

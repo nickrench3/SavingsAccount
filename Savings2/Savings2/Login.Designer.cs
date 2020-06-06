@@ -88,7 +88,7 @@
             this.registerButton.TabIndex = 6;
             this.registerButton.Text = "CREATE AN ACCOUNT";
             this.registerButton.UseVisualStyleBackColor = false;
-            this.registerButton.Click += new System.EventHandler(this.Button3_Click);
+            this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
             // 
             // label3
             // 
