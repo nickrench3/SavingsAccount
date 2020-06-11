@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
+using System.Net;
+using System.Net.Sockets;
 
 namespace Savings2
 {
@@ -16,12 +18,16 @@ namespace Savings2
     {
         private SqlConnection conSecure = new SqlConnection(@"Data Source=NICKRENTSCHLER\SQLEXPRESS01;Initial Catalog=Security;Integrated Security=True;Pooling=False");
         private SqlCommand cmd;
+        private string LastIP = "";
+        private string HostName = "";
         public static string userName;
         public bool result;
 
         public Login()
         {
             InitializeComponent();
+            LastIP = GetLocalIPAddress();
+            HostName = Dns.GetHostName();
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -38,7 +44,7 @@ namespace Savings2
             sda.Fill(dt);
             if (dt.Rows.Count == 1)
             {
-                cmd = new SqlCommand("INSERT LOGINEVENTLOG VALUES('" + usernameTextBox.Text.Trim() + "', '" + DateTime.Now + "', 'Savings App')", conSecure);
+                cmd = new SqlCommand("INSERT LOGINEVENTLOG VALUES('" + usernameTextBox.Text.Trim() + "', '" + DateTime.Now + "', 'Savings App', '"+LastIP+"', '"+HostName+"')", conSecure);
                 cmd.ExecuteNonQuery();
                 conSecure.Close();
                 Savings savings = new Savings();
@@ -100,5 +106,17 @@ namespace Savings2
             this.Hide();
         }
 
+        private static string GetLocalIPAddress()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return ip.ToString();
+                }
+            }
+            throw new Exception("No network adapters with an IPv4 address in the system!");
+        }
     }
 }
