@@ -16,6 +16,7 @@ namespace Savings2
     {
         private SqlConnection con = new SqlConnection(@"Data Source=NICKRENTSCHLER\SQLEXPRESS01;Initial Catalog=Savings;Integrated Security=True;Pooling=False");
         private SqlCommand cmd;
+        public int beforeBalance = 0;
 
         public Savings()
         {
@@ -27,12 +28,17 @@ namespace Savings2
 
             con.Open();
             //Select's balance from table for preset
-            cmd = new SqlCommand("SELECT Balance FROM SavingsAcct", con);
+            cmd = new SqlCommand("SELECT Balance, Cash, Bank FROM SavingsAcct", con);
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read())
             {
                 string balance = (dr["Balance"].ToString());
                 currBalTextBox.AppendText(balance + ".00");
+                beforeBalance = Convert.ToInt32(balance);
+                string bank = (dr["Bank"].ToString());
+                BankTextBox.AppendText(bank + ".00");
+                string cash = (dr["Cash"].ToString());
+                CashTextBox.AppendText(cash + ".00");
             }
             con.Close();
 
@@ -51,6 +57,8 @@ namespace Savings2
             int amount;
             int finalBalance;
             int newBalance = 0;
+            int cashBalance = 0;
+            int bankBalance = 0;
 
             if (amtTextBox.Text == "")
             {
@@ -58,46 +66,84 @@ namespace Savings2
             }
             else
             {
-                newBalTextBox.Clear();
                 con.Open();
-                cmd = new SqlCommand("SELECT Balance FROM SavingsAcct", con);
+                cmd = new SqlCommand("SELECT Balance, Cash, Bank FROM SavingsAcct", con);
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
                     string balance = (dr["Balance"].ToString());
                     newBalance = Convert.ToInt32(balance);
-
+                    beforeBalance = Convert.ToInt32(balance);
+                    string bank = (dr["Bank"].ToString());
+                    bankBalance = Convert.ToInt32(bank);
+                    string cash = (dr["Cash"].ToString());
+                    cashBalance = Convert.ToInt32(cash);
                 }
                 con.Close();
 
-                if (depositCheckBox.Checked == true)
+                if (depositCheckBox.Checked == true && CashCheckbox.Checked == true)
                 {
                     depositCheckBox.Checked = true;
                     withdrawlCheckBox.Checked = false;
                     con.Open();
                     amount = Convert.ToInt32(amtTextBox.Text);
                     finalBalance = newBalance + amount;
-                    newBalTextBox.AppendText(finalBalance.ToString("0.00"));
-                    cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "'", con);
+                    cashBalance = cashBalance + amount;
+                    CashTextBox.AppendText(cashBalance.ToString("0.00"));
+                    cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "', Cash = '"+cashBalance+"'", con);
                     cmd.ExecuteNonQuery();
                     con.Close();
                 }
                 else
                 {
-                    if (withdrawlCheckBox.Checked == true)
+                    if (depositCheckBox.Checked == true && CashCheckbox.Checked == false)
                     {
-                        depositCheckBox.Checked = false;
-                        withdrawlCheckBox.Checked = true;
+                        depositCheckBox.Checked = true;
+                        withdrawlCheckBox.Checked = false;
                         con.Open();
                         amount = Convert.ToInt32(amtTextBox.Text);
-                        finalBalance = newBalance - amount;
-                        newBalTextBox.AppendText(finalBalance.ToString("0.00"));
-                        cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "'", con);
+                        finalBalance = newBalance + amount;
+                        bankBalance = bankBalance + amount;
+                        BankTextBox.AppendText(bankBalance.ToString("0.00"));
+                        cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "', Bank = '" + bankBalance + "'", con);
                         cmd.ExecuteNonQuery();
                         con.Close();
                     }
+                    else
+                    {
+                        if (withdrawlCheckBox.Checked == true && CashCheckbox.Checked == true)
+                        {
+                            depositCheckBox.Checked = false;
+                            withdrawlCheckBox.Checked = true;
+                            con.Open();
+                            amount = Convert.ToInt32(amtTextBox.Text);
+                            finalBalance = newBalance - amount;
+                            cashBalance = cashBalance - amount;
+                            CashTextBox.AppendText(cashBalance.ToString("0.00"));
+                            cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "', Cash = '"+cashBalance + "'", con);
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+                        }
+                        else
+                        {
+                            if (withdrawlCheckBox.Checked == true && CashCheckbox.Checked == false)
+                            {
+                                depositCheckBox.Checked = false;
+                                withdrawlCheckBox.Checked = true;
+                                con.Open();
+                                amount = Convert.ToInt32(amtTextBox.Text);
+                                finalBalance = newBalance - amount;
+                                bankBalance = bankBalance - amount;
+                                BankTextBox.AppendText(bankBalance.ToString("0.00"));
+                                cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "', Bank = '" + bankBalance + "'", con);
+                                cmd.ExecuteNonQuery();
+                                con.Close();
+                            }
+                        }
+                    }
                 }
             }
+            LoadValues();
             RecordEvent();
             GetHistory();
         }
@@ -115,12 +161,12 @@ namespace Savings2
             con.Close();
         }
 
-        private void RecordEvent()
+        public void RecordEvent()
         {
             con.Open();;
-            string beforeAmount = currBalTextBox.Text;
+            int beforeAmount = beforeBalance;
             string amountChanged = amtTextBox.Text;
-            string newAmount = newBalTextBox.Text;
+            string newAmount = currBalTextBox.Text;
             string memoText = memoTextBox.Text;
             if (depositCheckBox.Checked == true)
             {
@@ -139,22 +185,33 @@ namespace Savings2
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
+            memoTextBox.Clear();
+            amtTextBox.Text = "";
+            adminTextBox.Text = "";
+            depositCheckBox.Checked = false;
+            withdrawlCheckBox.Checked = false;
+            CashCheckbox.Checked = false;
+        }
+
+        private void LoadValues()
+        {
             currBalTextBox.Clear();
+            CashTextBox.Clear();
+            BankTextBox.Clear();
             memoTextBox.Clear();
             con.Open();
-            cmd = new SqlCommand("SELECT Balance FROM SavingsAcct", con);
+            cmd = new SqlCommand("SELECT Balance, Cash, Bank FROM SavingsAcct", con);
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read())
             {
                 string balance = (dr["Balance"].ToString());
-                currBalTextBox.AppendText(balance);
+                currBalTextBox.AppendText(balance + ".00");
+                string bank = (dr["Bank"].ToString());
+                BankTextBox.AppendText(bank + ".00");
+                string cash = (dr["Cash"].ToString());
+                CashTextBox.AppendText(cash + ".00");
             }
             con.Close();
-            amtTextBox.Text = "";
-            newBalTextBox.Text = "";
-            adminTextBox.Text = "";
-            depositCheckBox.Checked = false;
-            withdrawlCheckBox.Checked = false;
         }
 
         private void AdminEnterButton_Click(object sender, EventArgs e)
@@ -164,15 +221,21 @@ namespace Savings2
             string beforeAmount = currBalTextBox.Text;
             MessageBox.Show(message, title);
             currBalTextBox.Clear();
+            BankTextBox.Clear();
+            CashTextBox.Clear();
             con.Open();
             string amountInput = adminTextBox.Text;
             int amount = Convert.ToInt32(amountInput);
             currBalTextBox.AppendText(amount.ToString("0.00"));
-            cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + amount + "'", con);
+            int cash = Convert.ToInt32(AdminCash.Text);
+            CashTextBox.AppendText(cash.ToString("0.00"));
+            int bank = Convert.ToInt32(AdminBank.Text);
+            BankTextBox.AppendText(bank.ToString("0.00"));
+            cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + amount + "', Bank = '"+bank+"', Cash = '"+cash+"'", con);
             cmd.ExecuteNonQuery();
             con.Close();
             con.Open();
-            cmd = new SqlCommand("INSERT INTO SavingsEventLog VALUES('" + beforeAmount + "', 'A', '" + "" + "', '" + amountInput + "', '" + DateTime.Now + "')", con);
+            cmd = new SqlCommand("INSERT INTO SavingsEventLog VALUES('" + beforeAmount + "', 'A', '" + "" + "', '" + amountInput + "', '" + DateTime.Now + "', 'Admin Entry')", con);
             cmd.ExecuteNonQuery();
             con.Close();
         }

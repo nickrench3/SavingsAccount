@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Savings.exe" size="93144">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Savings.exe" size="95704">
       <assemblyIdentity name="Savings" version="2.0.1.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>r5Xf7nIsqTZxkb4FiaGMrhGGUTjICg/SXC4pEHMV/vk=</dsig:DigestValue>
+        <dsig:DigestValue>GkhI2odhsIpkHdmHNj77y/y/bdb4eznXuHtqw5zZsuM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

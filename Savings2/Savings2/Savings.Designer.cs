@@ -34,9 +34,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.clearButton = new System.Windows.Forms.Button();
             this.enterButton = new System.Windows.Forms.Button();
-            this.newBalTextBox = new System.Windows.Forms.TextBox();
             this.amtTextBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.withdrawlCheckBox = new System.Windows.Forms.CheckBox();
             this.depositCheckBox = new System.Windows.Forms.CheckBox();
@@ -48,6 +46,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.HistoryDataGridView = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
+            this.BankTextBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.CashTextBox = new System.Windows.Forms.TextBox();
+            this.CashCheckbox = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.AdminCash = new System.Windows.Forms.TextBox();
+            this.AdminBank = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -63,18 +70,21 @@
             this.tabControl1.Location = new System.Drawing.Point(0, -1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(490, 450);
+            this.tabControl1.Size = new System.Drawing.Size(488, 437);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.CashCheckbox);
+            this.tabPage1.Controls.Add(this.CashTextBox);
+            this.tabPage1.Controls.Add(this.label7);
+            this.tabPage1.Controls.Add(this.BankTextBox);
+            this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.memoTextBox);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.clearButton);
             this.tabPage1.Controls.Add(this.enterButton);
-            this.tabPage1.Controls.Add(this.newBalTextBox);
             this.tabPage1.Controls.Add(this.amtTextBox);
-            this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.withdrawlCheckBox);
             this.tabPage1.Controls.Add(this.depositCheckBox);
@@ -84,14 +94,14 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(482, 424);
+            this.tabPage1.Size = new System.Drawing.Size(480, 411);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Account Manager";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // memoTextBox
             // 
-            this.memoTextBox.Location = new System.Drawing.Point(272, 248);
+            this.memoTextBox.Location = new System.Drawing.Point(261, 293);
             this.memoTextBox.MaxLength = 200;
             this.memoTextBox.Name = "memoTextBox";
             this.memoTextBox.Size = new System.Drawing.Size(168, 22);
@@ -100,7 +110,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(55, 251);
+            this.label5.Location = new System.Drawing.Point(40, 293);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 16);
             this.label5.TabIndex = 14;
@@ -108,7 +118,7 @@
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(92, 298);
+            this.clearButton.Location = new System.Drawing.Point(73, 334);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(75, 33);
             this.clearButton.TabIndex = 12;
@@ -118,7 +128,7 @@
             // 
             // enterButton
             // 
-            this.enterButton.Location = new System.Drawing.Point(260, 298);
+            this.enterButton.Location = new System.Drawing.Point(246, 334);
             this.enterButton.Name = "enterButton";
             this.enterButton.Size = new System.Drawing.Size(129, 33);
             this.enterButton.TabIndex = 10;
@@ -126,36 +136,18 @@
             this.enterButton.UseVisualStyleBackColor = true;
             this.enterButton.Click += new System.EventHandler(this.EnterButton_Click);
             // 
-            // newBalTextBox
-            // 
-            this.newBalTextBox.Enabled = false;
-            this.newBalTextBox.Location = new System.Drawing.Point(273, 363);
-            this.newBalTextBox.Name = "newBalTextBox";
-            this.newBalTextBox.Size = new System.Drawing.Size(168, 22);
-            this.newBalTextBox.TabIndex = 13;
-            this.newBalTextBox.TabStop = false;
-            // 
             // amtTextBox
             // 
-            this.amtTextBox.Location = new System.Drawing.Point(272, 213);
+            this.amtTextBox.Location = new System.Drawing.Point(261, 237);
             this.amtTextBox.MaxLength = 6;
             this.amtTextBox.Name = "amtTextBox";
             this.amtTextBox.Size = new System.Drawing.Size(168, 22);
             this.amtTextBox.TabIndex = 8;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(56, 370);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(139, 16);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "New Account Balance";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(55, 220);
+            this.label2.Location = new System.Drawing.Point(39, 243);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 16);
             this.label2.TabIndex = 9;
@@ -164,7 +156,7 @@
             // withdrawlCheckBox
             // 
             this.withdrawlCheckBox.AutoSize = true;
-            this.withdrawlCheckBox.Location = new System.Drawing.Point(90, 151);
+            this.withdrawlCheckBox.Location = new System.Drawing.Point(73, 197);
             this.withdrawlCheckBox.Name = "withdrawlCheckBox";
             this.withdrawlCheckBox.Size = new System.Drawing.Size(85, 20);
             this.withdrawlCheckBox.TabIndex = 4;
@@ -175,7 +167,7 @@
             // depositCheckBox
             // 
             this.depositCheckBox.AutoSize = true;
-            this.depositCheckBox.Location = new System.Drawing.Point(90, 111);
+            this.depositCheckBox.Location = new System.Drawing.Point(73, 157);
             this.depositCheckBox.Name = "depositCheckBox";
             this.depositCheckBox.Size = new System.Drawing.Size(74, 20);
             this.depositCheckBox.TabIndex = 3;
@@ -186,7 +178,7 @@
             // currBalTextBox
             // 
             this.currBalTextBox.Enabled = false;
-            this.currBalTextBox.Location = new System.Drawing.Point(272, 38);
+            this.currBalTextBox.Location = new System.Drawing.Point(262, 26);
             this.currBalTextBox.Name = "currBalTextBox";
             this.currBalTextBox.Size = new System.Drawing.Size(168, 22);
             this.currBalTextBox.TabIndex = 2;
@@ -195,7 +187,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 45);
+            this.label1.Location = new System.Drawing.Point(44, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 16);
             this.label1.TabIndex = 1;
@@ -203,6 +195,10 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.AdminBank);
+            this.tabPage2.Controls.Add(this.AdminCash);
+            this.tabPage2.Controls.Add(this.label8);
+            this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.adminEnterButton);
             this.tabPage2.Controls.Add(this.adminTextBox);
             this.tabPage2.Controls.Add(this.label4);
@@ -210,14 +206,14 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(482, 424);
+            this.tabPage2.Size = new System.Drawing.Size(480, 411);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Admin Portal";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // adminEnterButton
             // 
-            this.adminEnterButton.Location = new System.Drawing.Point(156, 159);
+            this.adminEnterButton.Location = new System.Drawing.Point(160, 198);
             this.adminEnterButton.Name = "adminEnterButton";
             this.adminEnterButton.Size = new System.Drawing.Size(176, 42);
             this.adminEnterButton.TabIndex = 5;
@@ -266,11 +262,89 @@
             this.HistoryDataGridView.Size = new System.Drawing.Size(482, 424);
             this.HistoryDataGridView.TabIndex = 0;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(125, 66);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(39, 16);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Bank";
+            // 
+            // BankTextBox
+            // 
+            this.BankTextBox.Enabled = false;
+            this.BankTextBox.Location = new System.Drawing.Point(262, 60);
+            this.BankTextBox.Name = "BankTextBox";
+            this.BankTextBox.Size = new System.Drawing.Size(168, 22);
+            this.BankTextBox.TabIndex = 16;
+            this.BankTextBox.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(125, 99);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(39, 16);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Cash";
+            // 
+            // CashTextBox
+            // 
+            this.CashTextBox.Enabled = false;
+            this.CashTextBox.Location = new System.Drawing.Point(262, 93);
+            this.CashTextBox.Name = "CashTextBox";
+            this.CashTextBox.Size = new System.Drawing.Size(168, 22);
+            this.CashTextBox.TabIndex = 18;
+            this.CashTextBox.TabStop = false;
+            // 
+            // CashCheckbox
+            // 
+            this.CashCheckbox.AutoSize = true;
+            this.CashCheckbox.Location = new System.Drawing.Point(317, 265);
+            this.CashCheckbox.Name = "CashCheckbox";
+            this.CashCheckbox.Size = new System.Drawing.Size(58, 20);
+            this.CashCheckbox.TabIndex = 19;
+            this.CashCheckbox.Text = "Cash";
+            this.CashCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(118, 115);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(39, 16);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Cash";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(118, 153);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(39, 16);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Bank";
+            // 
+            // AdminCash
+            // 
+            this.AdminCash.Location = new System.Drawing.Point(292, 109);
+            this.AdminCash.Name = "AdminCash";
+            this.AdminCash.Size = new System.Drawing.Size(135, 22);
+            this.AdminCash.TabIndex = 8;
+            // 
+            // AdminBank
+            // 
+            this.AdminBank.Location = new System.Drawing.Point(292, 147);
+            this.AdminBank.Name = "AdminBank";
+            this.AdminBank.Size = new System.Drawing.Size(135, 22);
+            this.AdminBank.TabIndex = 9;
+            // 
             // Savings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 450);
+            this.ClientSize = new System.Drawing.Size(487, 435);
             this.Controls.Add(this.tabControl1);
             this.Name = "Savings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -292,9 +366,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button enterButton;
-        private System.Windows.Forms.TextBox newBalTextBox;
         private System.Windows.Forms.TextBox amtTextBox;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox withdrawlCheckBox;
         private System.Windows.Forms.CheckBox depositCheckBox;
@@ -308,5 +380,14 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView HistoryDataGridView;
+        private System.Windows.Forms.CheckBox CashCheckbox;
+        private System.Windows.Forms.TextBox CashTextBox;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox BankTextBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox AdminBank;
+        private System.Windows.Forms.TextBox AdminCash;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label3;
     }
 }
