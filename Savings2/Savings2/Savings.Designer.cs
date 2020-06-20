@@ -311,7 +311,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(118, 115);
+            this.label3.Location = new System.Drawing.Point(128, 151);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 16);
             this.label3.TabIndex = 6;
@@ -320,7 +320,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(118, 153);
+            this.label8.Location = new System.Drawing.Point(128, 115);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(39, 16);
             this.label8.TabIndex = 7;
@@ -328,14 +328,14 @@
             // 
             // AdminCash
             // 
-            this.AdminCash.Location = new System.Drawing.Point(292, 109);
+            this.AdminCash.Location = new System.Drawing.Point(292, 145);
             this.AdminCash.Name = "AdminCash";
             this.AdminCash.Size = new System.Drawing.Size(135, 22);
             this.AdminCash.TabIndex = 8;
             // 
             // AdminBank
             // 
-            this.AdminBank.Location = new System.Drawing.Point(292, 147);
+            this.AdminBank.Location = new System.Drawing.Point(292, 109);
             this.AdminBank.Name = "AdminBank";
             this.AdminBank.Size = new System.Drawing.Size(135, 22);
             this.AdminBank.TabIndex = 9;

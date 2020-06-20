@@ -21,8 +21,3 @@ C:\GitHub\SavingsAccount\Savings2\Savings2\bin\Release\Savings.pdb
 C:\GitHub\SavingsAccount\Savings2\Savings2\obj\Release\Savings.Properties.Resources.resources
 C:\GitHub\SavingsAccount\Savings2\Savings2\obj\Release\Savings.exe
 C:\GitHub\SavingsAccount\Savings2\Savings2\obj\Release\Savings.pdb
-C:\GitHub\SavingsAccount\Savings2\Savings2\bin\Release\Savings.exe.manifest
-C:\GitHub\SavingsAccount\Savings2\Savings2\bin\Release\Savings.application
-C:\GitHub\SavingsAccount\Savings2\Savings2\obj\Release\Savings.TrustInfo.xml
-C:\GitHub\SavingsAccount\Savings2\Savings2\obj\Release\Savings.exe.manifest
-C:\GitHub\SavingsAccount\Savings2\Savings2\obj\Release\Savings.application
