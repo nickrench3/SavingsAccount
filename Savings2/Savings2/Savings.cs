@@ -146,6 +146,7 @@ namespace Savings2
             LoadValues();
             RecordEvent();
             GetHistory();
+            memoTextBox.Clear();
         }
 
         private void GetHistory()
@@ -198,7 +199,6 @@ namespace Savings2
             currBalTextBox.Clear();
             CashTextBox.Clear();
             BankTextBox.Clear();
-            memoTextBox.Clear();
             con.Open();
             cmd = new SqlCommand("SELECT Balance, Cash, Bank FROM SavingsAcct", con);
             SqlDataReader dr = cmd.ExecuteReader();
@@ -248,6 +248,30 @@ namespace Savings2
         private void withdrawlCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             depositCheckBox.Checked = !withdrawlCheckBox.Checked;
+        }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            depositCheckBox.Checked = true;
+            currBalTextBox.Clear();
+            CashTextBox.Clear();
+            BankTextBox.Clear();
+            con.Open();
+            //Select's balance from table for preset
+            cmd = new SqlCommand("SELECT Balance, Cash, Bank FROM SavingsAcct", con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                string balance = (dr["Balance"].ToString());
+                currBalTextBox.AppendText(balance + ".00");
+                beforeBalance = Convert.ToInt32(balance);
+                string bank = (dr["Bank"].ToString());
+                BankTextBox.AppendText(bank + ".00");
+                string cash = (dr["Cash"].ToString());
+                CashTextBox.AppendText(cash + ".00");
+            }
+            con.Close();
+            GetHistory();
         }
     }
 }
