@@ -16,7 +16,7 @@ namespace Savings2
     {
         private SqlConnection con = new SqlConnection(@"Data Source=NICKRENTSCHLER\SQLEXPRESS01;Initial Catalog=Savings;Integrated Security=True;Pooling=False");
         private SqlCommand cmd;
-        public int beforeBalance = 1;
+        public int beforeBalance = 0;
 
         public Savings()
         {
