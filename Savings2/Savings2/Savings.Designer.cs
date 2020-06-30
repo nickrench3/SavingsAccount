@@ -264,22 +264,22 @@
             // 
             // AdminBank
             // 
-            this.AdminBank.Location = new System.Drawing.Point(292, 109);
+            this.AdminBank.Location = new System.Drawing.Point(291, 60);
             this.AdminBank.Name = "AdminBank";
-            this.AdminBank.Size = new System.Drawing.Size(135, 22);
+            this.AdminBank.Size = new System.Drawing.Size(168, 22);
             this.AdminBank.TabIndex = 9;
             // 
             // AdminCash
             // 
-            this.AdminCash.Location = new System.Drawing.Point(292, 145);
+            this.AdminCash.Location = new System.Drawing.Point(291, 93);
             this.AdminCash.Name = "AdminCash";
-            this.AdminCash.Size = new System.Drawing.Size(135, 22);
+            this.AdminCash.Size = new System.Drawing.Size(168, 22);
             this.AdminCash.TabIndex = 8;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(128, 115);
+            this.label8.Location = new System.Drawing.Point(125, 66);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(39, 16);
             this.label8.TabIndex = 7;
@@ -288,7 +288,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(128, 151);
+            this.label3.Location = new System.Drawing.Point(125, 99);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 16);
             this.label3.TabIndex = 6;
@@ -296,7 +296,7 @@
             // 
             // adminEnterButton
             // 
-            this.adminEnterButton.Location = new System.Drawing.Point(160, 198);
+            this.adminEnterButton.Location = new System.Drawing.Point(157, 153);
             this.adminEnterButton.Name = "adminEnterButton";
             this.adminEnterButton.Size = new System.Drawing.Size(176, 42);
             this.adminEnterButton.TabIndex = 5;
@@ -306,15 +306,15 @@
             // 
             // adminTextBox
             // 
-            this.adminTextBox.Location = new System.Drawing.Point(292, 70);
+            this.adminTextBox.Location = new System.Drawing.Point(291, 26);
             this.adminTextBox.Name = "adminTextBox";
-            this.adminTextBox.Size = new System.Drawing.Size(135, 22);
+            this.adminTextBox.Size = new System.Drawing.Size(168, 22);
             this.adminTextBox.TabIndex = 4;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(39, 70);
+            this.label4.Location = new System.Drawing.Point(44, 32);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(179, 16);
             this.label4.TabIndex = 3;
