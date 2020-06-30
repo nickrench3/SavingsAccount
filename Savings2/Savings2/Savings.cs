@@ -273,5 +273,10 @@ namespace Savings2
             con.Close();
             GetHistory();
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
     }
 }

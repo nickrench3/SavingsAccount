@@ -58,6 +58,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -71,11 +72,10 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(0, 45);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabControl1.Location = new System.Drawing.Point(0, 23);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(976, 840);
+            this.tabControl1.Size = new System.Drawing.Size(488, 437);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -96,11 +96,10 @@
             this.tabPage1.Controls.Add(this.currBalTextBox);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage1.Location = new System.Drawing.Point(4, 34);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.tabPage1.Size = new System.Drawing.Size(968, 802);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Size = new System.Drawing.Size(480, 411);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Account Manager";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -108,8 +107,7 @@
             // CashCheckbox
             // 
             this.CashCheckbox.AutoSize = true;
-            this.CashCheckbox.Location = new System.Drawing.Point(634, 510);
-            this.CashCheckbox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.CashCheckbox.Location = new System.Drawing.Point(317, 265);
             this.CashCheckbox.Name = "CashCheckbox";
             this.CashCheckbox.Size = new System.Drawing.Size(58, 20);
             this.CashCheckbox.TabIndex = 19;
@@ -119,18 +117,16 @@
             // CashTextBox
             // 
             this.CashTextBox.Enabled = false;
-            this.CashTextBox.Location = new System.Drawing.Point(524, 179);
-            this.CashTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.CashTextBox.Location = new System.Drawing.Point(262, 93);
             this.CashTextBox.Name = "CashTextBox";
-            this.CashTextBox.Size = new System.Drawing.Size(332, 22);
+            this.CashTextBox.Size = new System.Drawing.Size(168, 22);
             this.CashTextBox.TabIndex = 18;
             this.CashTextBox.TabStop = false;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(250, 190);
-            this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label7.Location = new System.Drawing.Point(125, 99);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(39, 16);
             this.label7.TabIndex = 17;
@@ -139,18 +135,16 @@
             // BankTextBox
             // 
             this.BankTextBox.Enabled = false;
-            this.BankTextBox.Location = new System.Drawing.Point(524, 115);
-            this.BankTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.BankTextBox.Location = new System.Drawing.Point(262, 60);
             this.BankTextBox.Name = "BankTextBox";
-            this.BankTextBox.Size = new System.Drawing.Size(332, 22);
+            this.BankTextBox.Size = new System.Drawing.Size(168, 22);
             this.BankTextBox.TabIndex = 16;
             this.BankTextBox.TabStop = false;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(250, 127);
-            this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label6.Location = new System.Drawing.Point(125, 66);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(39, 16);
             this.label6.TabIndex = 15;
@@ -158,18 +152,16 @@
             // 
             // memoTextBox
             // 
-            this.memoTextBox.Location = new System.Drawing.Point(522, 563);
-            this.memoTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.memoTextBox.Location = new System.Drawing.Point(261, 293);
             this.memoTextBox.MaxLength = 200;
             this.memoTextBox.Name = "memoTextBox";
-            this.memoTextBox.Size = new System.Drawing.Size(332, 22);
+            this.memoTextBox.Size = new System.Drawing.Size(168, 22);
             this.memoTextBox.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(80, 563);
-            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label5.Location = new System.Drawing.Point(40, 293);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 16);
             this.label5.TabIndex = 14;
@@ -177,10 +169,9 @@
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(146, 642);
-            this.clearButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.clearButton.Location = new System.Drawing.Point(73, 334);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(150, 63);
+            this.clearButton.Size = new System.Drawing.Size(75, 33);
             this.clearButton.TabIndex = 12;
             this.clearButton.Text = "CLEAR";
             this.clearButton.UseVisualStyleBackColor = true;
@@ -188,10 +179,9 @@
             // 
             // enterButton
             // 
-            this.enterButton.Location = new System.Drawing.Point(492, 642);
-            this.enterButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.enterButton.Location = new System.Drawing.Point(246, 334);
             this.enterButton.Name = "enterButton";
-            this.enterButton.Size = new System.Drawing.Size(258, 63);
+            this.enterButton.Size = new System.Drawing.Size(129, 33);
             this.enterButton.TabIndex = 10;
             this.enterButton.Text = "ENTER";
             this.enterButton.UseVisualStyleBackColor = true;
@@ -199,18 +189,16 @@
             // 
             // amtTextBox
             // 
-            this.amtTextBox.Location = new System.Drawing.Point(522, 456);
-            this.amtTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.amtTextBox.Location = new System.Drawing.Point(261, 237);
             this.amtTextBox.MaxLength = 6;
             this.amtTextBox.Name = "amtTextBox";
-            this.amtTextBox.Size = new System.Drawing.Size(332, 22);
+            this.amtTextBox.Size = new System.Drawing.Size(168, 22);
             this.amtTextBox.TabIndex = 8;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(78, 467);
-            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label2.Location = new System.Drawing.Point(39, 243);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 16);
             this.label2.TabIndex = 9;
@@ -219,8 +207,7 @@
             // withdrawlCheckBox
             // 
             this.withdrawlCheckBox.AutoSize = true;
-            this.withdrawlCheckBox.Location = new System.Drawing.Point(146, 379);
-            this.withdrawlCheckBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.withdrawlCheckBox.Location = new System.Drawing.Point(73, 197);
             this.withdrawlCheckBox.Name = "withdrawlCheckBox";
             this.withdrawlCheckBox.Size = new System.Drawing.Size(85, 20);
             this.withdrawlCheckBox.TabIndex = 4;
@@ -231,8 +218,7 @@
             // depositCheckBox
             // 
             this.depositCheckBox.AutoSize = true;
-            this.depositCheckBox.Location = new System.Drawing.Point(146, 302);
-            this.depositCheckBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.depositCheckBox.Location = new System.Drawing.Point(73, 157);
             this.depositCheckBox.Name = "depositCheckBox";
             this.depositCheckBox.Size = new System.Drawing.Size(74, 20);
             this.depositCheckBox.TabIndex = 3;
@@ -243,18 +229,16 @@
             // currBalTextBox
             // 
             this.currBalTextBox.Enabled = false;
-            this.currBalTextBox.Location = new System.Drawing.Point(524, 50);
-            this.currBalTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.currBalTextBox.Location = new System.Drawing.Point(262, 26);
             this.currBalTextBox.Name = "currBalTextBox";
-            this.currBalTextBox.Size = new System.Drawing.Size(332, 22);
+            this.currBalTextBox.Size = new System.Drawing.Size(168, 22);
             this.currBalTextBox.TabIndex = 2;
             this.currBalTextBox.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(88, 62);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Location = new System.Drawing.Point(44, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 16);
             this.label1.TabIndex = 1;
@@ -270,36 +254,32 @@
             this.tabPage2.Controls.Add(this.adminTextBox);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage2.Location = new System.Drawing.Point(4, 34);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.tabPage2.Size = new System.Drawing.Size(968, 802);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Size = new System.Drawing.Size(480, 411);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Admin Portal";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // AdminBank
             // 
-            this.AdminBank.Location = new System.Drawing.Point(584, 210);
-            this.AdminBank.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.AdminBank.Location = new System.Drawing.Point(292, 109);
             this.AdminBank.Name = "AdminBank";
-            this.AdminBank.Size = new System.Drawing.Size(266, 22);
+            this.AdminBank.Size = new System.Drawing.Size(135, 22);
             this.AdminBank.TabIndex = 9;
             // 
             // AdminCash
             // 
-            this.AdminCash.Location = new System.Drawing.Point(584, 279);
-            this.AdminCash.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.AdminCash.Location = new System.Drawing.Point(292, 145);
             this.AdminCash.Name = "AdminCash";
-            this.AdminCash.Size = new System.Drawing.Size(266, 22);
+            this.AdminCash.Size = new System.Drawing.Size(135, 22);
             this.AdminCash.TabIndex = 8;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(256, 221);
-            this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label8.Location = new System.Drawing.Point(128, 115);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(39, 16);
             this.label8.TabIndex = 7;
@@ -308,8 +288,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(256, 290);
-            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label3.Location = new System.Drawing.Point(128, 151);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 16);
             this.label3.TabIndex = 6;
@@ -317,10 +296,9 @@
             // 
             // adminEnterButton
             // 
-            this.adminEnterButton.Location = new System.Drawing.Point(320, 381);
-            this.adminEnterButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.adminEnterButton.Location = new System.Drawing.Point(160, 198);
             this.adminEnterButton.Name = "adminEnterButton";
-            this.adminEnterButton.Size = new System.Drawing.Size(352, 81);
+            this.adminEnterButton.Size = new System.Drawing.Size(176, 42);
             this.adminEnterButton.TabIndex = 5;
             this.adminEnterButton.Text = "ENTER";
             this.adminEnterButton.UseVisualStyleBackColor = true;
@@ -328,17 +306,15 @@
             // 
             // adminTextBox
             // 
-            this.adminTextBox.Location = new System.Drawing.Point(584, 135);
-            this.adminTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.adminTextBox.Location = new System.Drawing.Point(292, 70);
             this.adminTextBox.Name = "adminTextBox";
-            this.adminTextBox.Size = new System.Drawing.Size(266, 22);
+            this.adminTextBox.Size = new System.Drawing.Size(135, 22);
             this.adminTextBox.TabIndex = 4;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(78, 135);
-            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label4.Location = new System.Drawing.Point(39, 70);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(179, 16);
             this.label4.TabIndex = 3;
@@ -347,11 +323,10 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.HistoryDataGridView);
-            this.tabPage3.Location = new System.Drawing.Point(4, 34);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.tabPage3.Size = new System.Drawing.Size(968, 802);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Size = new System.Drawing.Size(480, 411);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "History";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -365,10 +340,9 @@
             this.HistoryDataGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.HistoryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.HistoryDataGridView.Location = new System.Drawing.Point(0, 0);
-            this.HistoryDataGridView.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.HistoryDataGridView.Name = "HistoryDataGridView";
             this.HistoryDataGridView.ReadOnly = true;
-            this.HistoryDataGridView.Size = new System.Drawing.Size(964, 815);
+            this.HistoryDataGridView.Size = new System.Drawing.Size(482, 424);
             this.HistoryDataGridView.TabIndex = 0;
             // 
             // menuStrip1
@@ -377,16 +351,18 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(974, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(3, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(487, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.refreshToolStripMenuItem});
+            this.refreshToolStripMenuItem,
+            this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 22);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // refreshToolStripMenuItem
@@ -396,15 +372,21 @@
             this.refreshToolStripMenuItem.Text = "Refresh";
             this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // Savings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(974, 886);
+            this.ClientSize = new System.Drawing.Size(487, 461);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Savings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Savings";
@@ -454,5 +436,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
