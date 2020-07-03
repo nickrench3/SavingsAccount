@@ -49,6 +49,7 @@ namespace Savings2
                 tabControl1.TabPages.Remove(tabPage2);
                 tabControl1.TabPages.Remove(tabPage3);
             }
+            //Gets the history from the EventLog
             GetHistory();
         }
 
@@ -66,6 +67,7 @@ namespace Savings2
             }
             else
             {
+                //Gets the balance, cash and bank amounts from table
                 con.Open();
                 cmd = new SqlCommand("SELECT Balance, Cash, Bank FROM SavingsAcct", con);
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -81,6 +83,7 @@ namespace Savings2
                 }
                 con.Close();
 
+                //Looks at if the transacation will be a deposit and cash
                 if (depositCheckBox.Checked == true && CashCheckbox.Checked == true)
                 {
                     depositCheckBox.Checked = true;
@@ -96,6 +99,7 @@ namespace Savings2
                 }
                 else
                 {
+                    //Looks at if the transacation will be a deposit and not cash
                     if (depositCheckBox.Checked == true && CashCheckbox.Checked == false)
                     {
                         depositCheckBox.Checked = true;
@@ -111,6 +115,7 @@ namespace Savings2
                     }
                     else
                     {
+                        //Looks at if the transacation will be a withdrawl and cash
                         if (withdrawlCheckBox.Checked == true && CashCheckbox.Checked == true)
                         {
                             depositCheckBox.Checked = false;
@@ -126,6 +131,7 @@ namespace Savings2
                         }
                         else
                         {
+                            //Looks at if the transacation will be a withdrawl and not cash
                             if (withdrawlCheckBox.Checked == true && CashCheckbox.Checked == false)
                             {
                                 depositCheckBox.Checked = false;
@@ -143,8 +149,11 @@ namespace Savings2
                     }
                 }
             }
+            //Loads the values of the textboxes
             LoadValues();
+            //Inserts event into the EventLog
             RecordEvent();
+            //Gets the history from the EventLog
             GetHistory();
             memoTextBox.Clear();
         }
@@ -220,10 +229,11 @@ namespace Savings2
             string title = "Savings Account Admin";
             string beforeAmount = currBalTextBox.Text;
             MessageBox.Show(message, title);
-            currBalTextBox.Clear();
-            BankTextBox.Clear();
-            CashTextBox.Clear();
-            con.Open();
+
+            //Clears the textboxes
+            ClearBoxes();
+
+            //Getting the amount inputs
             string amountInput = adminTextBox.Text;
             int amount = Convert.ToInt32(amountInput);
             currBalTextBox.AppendText(amount.ToString("0.00"));
@@ -231,6 +241,9 @@ namespace Savings2
             CashTextBox.AppendText(cash.ToString("0.00"));
             int bank = Convert.ToInt32(AdminBank.Text);
             BankTextBox.AppendText(bank.ToString("0.00"));
+
+            //Update balance and insert into EventLog
+            con.Open();
             cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + amount + "', Bank = '"+bank+"', Cash = '"+cash+"'", con);
             cmd.ExecuteNonQuery();
             con.Close();
@@ -238,6 +251,13 @@ namespace Savings2
             cmd = new SqlCommand("INSERT INTO SavingsEventLog VALUES('" + beforeAmount + "', 'A', '" + "" + "', '" + amountInput + "', '" + DateTime.Now + "', 'Admin Entry')", con);
             cmd.ExecuteNonQuery();
             con.Close();
+        }
+
+        private void ClearBoxes()
+        {
+            currBalTextBox.Clear();
+            CashTextBox.Clear();
+            BankTextBox.Clear();
         }
 
         private void depositCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -253,9 +273,7 @@ namespace Savings2
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
             depositCheckBox.Checked = true;
-            currBalTextBox.Clear();
-            CashTextBox.Clear();
-            BankTextBox.Clear();
+            ClearBoxes();
             con.Open();
             //Select's balance from table for preset
             cmd = new SqlCommand("SELECT Balance, Cash, Bank FROM SavingsAcct", con);
