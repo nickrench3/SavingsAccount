@@ -14,7 +14,6 @@ C:\GitHub\SavingsAccount\Savings2\Savings2\obj\Debug\Savings2.Register.resources
 C:\GitHub\SavingsAccount\Savings2\Savings2\obj\Debug\Savings2.Savings.resources
 C:\GitHub\SavingsAccount\Savings2\Savings2\obj\Debug\Savings2.csproj.GenerateResource.cache
 C:\GitHub\SavingsAccount\Savings2\Savings2\obj\Debug\Savings2.csproj.CoreCompileInputs.cache
-C:\GitHub\SavingsAccount\Savings2\Savings2\obj\Debug\Savings2.csprojAssemblyReference.cache
 C:\GitHub\SavingsAccount\Savings2\Savings2\bin\Debug\Savings.exe.config
 C:\GitHub\SavingsAccount\Savings2\Savings2\bin\Debug\Savings.exe
 C:\GitHub\SavingsAccount\Savings2\Savings2\bin\Debug\Savings.pdb

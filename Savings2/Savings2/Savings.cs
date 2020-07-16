@@ -83,19 +83,18 @@ namespace Savings2
                 }
                 con.Close();
 
+                con.Open();
+
                 //Looks at if the transacation will be a deposit and cash
                 if (depositCheckBox.Checked == true && CashCheckbox.Checked == true)
                 {
                     depositCheckBox.Checked = true;
                     withdrawlCheckBox.Checked = false;
-                    con.Open();
                     amount = Convert.ToInt32(amtTextBox.Text);
                     finalBalance = newBalance + amount;
                     cashBalance = cashBalance + amount;
                     CashTextBox.AppendText(cashBalance.ToString("0.00"));
                     cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "', Cash = '"+cashBalance+"'", con);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
                 }
                 else
                 {
@@ -104,14 +103,11 @@ namespace Savings2
                     {
                         depositCheckBox.Checked = true;
                         withdrawlCheckBox.Checked = false;
-                        con.Open();
                         amount = Convert.ToInt32(amtTextBox.Text);
                         finalBalance = newBalance + amount;
                         bankBalance = bankBalance + amount;
                         BankTextBox.AppendText(bankBalance.ToString("0.00"));
                         cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "', Bank = '" + bankBalance + "'", con);
-                        cmd.ExecuteNonQuery();
-                        con.Close();
                     }
                     else
                     {
@@ -120,14 +116,11 @@ namespace Savings2
                         {
                             depositCheckBox.Checked = false;
                             withdrawlCheckBox.Checked = true;
-                            con.Open();
                             amount = Convert.ToInt32(amtTextBox.Text);
                             finalBalance = newBalance - amount;
                             cashBalance = cashBalance - amount;
                             CashTextBox.AppendText(cashBalance.ToString("0.00"));
                             cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "', Cash = '"+cashBalance + "'", con);
-                            cmd.ExecuteNonQuery();
-                            con.Close();
                         }
                         else
                         {
@@ -136,17 +129,16 @@ namespace Savings2
                             {
                                 depositCheckBox.Checked = false;
                                 withdrawlCheckBox.Checked = true;
-                                con.Open();
                                 amount = Convert.ToInt32(amtTextBox.Text);
                                 finalBalance = newBalance - amount;
                                 bankBalance = bankBalance - amount;
                                 BankTextBox.AppendText(bankBalance.ToString("0.00"));
                                 cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "', Bank = '" + bankBalance + "'", con);
-                                cmd.ExecuteNonQuery();
-                                con.Close();
                             }
                         }
                     }
+                    cmd.ExecuteNonQuery();
+                    con.Close();
                 }
             }
             //Loads the values of the textboxes
@@ -160,7 +152,7 @@ namespace Savings2
 
         private void GetHistory()
         {
-            string SQL = "SELECT BeforeBalance as [Before], [Transfer], Amount, NewBalance as New, CONVERT(date, ExecutionTime) as [Date], Memo FROM SavingsEventLog ORDER BY ExecutionTime DESC";
+            string SQL = "SELECT BeforeBalance as [Before], [Transfer], Amount, NewBalance as New, CONVERT(date, ExecutionTime) as [Date], Memo, CASE Cash WHEN 1 THEN 'Y' ELSE 'N' END AS Cash FROM SavingsEventLog ORDER BY ExecutionTime DESC";
             cmd = new SqlCommand(SQL, con);
             con.Open();
             DataTable table = new DataTable();
@@ -178,15 +170,16 @@ namespace Savings2
             string amountChanged = amtTextBox.Text;
             string newAmount = currBalTextBox.Text;
             string memoText = memoTextBox.Text;
+            bool Cash = CashCheckbox.Checked;
             if (depositCheckBox.Checked == true)
             {
-                cmd = new SqlCommand("INSERT INTO SavingsEventLog VALUES('" + beforeAmount + "', 'D', '" + amountChanged + "', '" + newAmount + "', '" + DateTime.Now + "', '" + memoText + "')", con);
+                cmd = new SqlCommand("INSERT INTO SavingsEventLog VALUES('" + beforeAmount + "', 'D', '" + amountChanged + "', '" + newAmount + "', '" + DateTime.Now + "', '" + memoText + "', '" + Cash + "')", con);
             }
             else
             {
                 if (withdrawlCheckBox.Checked == true)
                 {
-                    cmd = new SqlCommand("INSERT INTO SavingsEventLog VALUES('" + beforeAmount + "', 'W', '" + amountChanged + "', '" + newAmount + "', '" + DateTime.Now + "', '" + memoText + "')", con);
+                    cmd = new SqlCommand("INSERT INTO SavingsEventLog VALUES('" + beforeAmount + "', 'W', '" + amountChanged + "', '" + newAmount + "', '" + DateTime.Now + "', '" + memoText + "', '" + Cash + "')", con);
                 }
             }
             cmd.ExecuteNonQuery();
