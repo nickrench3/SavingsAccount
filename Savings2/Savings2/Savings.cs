@@ -95,6 +95,8 @@ namespace Savings2
                     cashBalance = cashBalance + amount;
                     CashTextBox.AppendText(cashBalance.ToString("0.00"));
                     cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "', Cash = '"+cashBalance+"'", con);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
                 }
                 else
                 {
@@ -108,6 +110,8 @@ namespace Savings2
                         bankBalance = bankBalance + amount;
                         BankTextBox.AppendText(bankBalance.ToString("0.00"));
                         cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "', Bank = '" + bankBalance + "'", con);
+                        cmd.ExecuteNonQuery();
+                        con.Close();
                     }
                     else
                     {
@@ -121,6 +125,8 @@ namespace Savings2
                             cashBalance = cashBalance - amount;
                             CashTextBox.AppendText(cashBalance.ToString("0.00"));
                             cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "', Cash = '"+cashBalance + "'", con);
+                            cmd.ExecuteNonQuery();
+                            con.Close();
                         }
                         else
                         {
@@ -134,11 +140,11 @@ namespace Savings2
                                 bankBalance = bankBalance - amount;
                                 BankTextBox.AppendText(bankBalance.ToString("0.00"));
                                 cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "', Bank = '" + bankBalance + "'", con);
+                                cmd.ExecuteNonQuery();
+                                con.Close();
                             }
                         }
                     }
-                    cmd.ExecuteNonQuery();
-                    con.Close();
                 }
             }
             //Loads the values of the textboxes
@@ -147,7 +153,7 @@ namespace Savings2
             RecordEvent();
             //Gets the history from the EventLog
             GetHistory();
-            memoTextBox.Clear();
+            ClearBoxes();
         }
 
         private void GetHistory()
@@ -241,16 +247,19 @@ namespace Savings2
             cmd.ExecuteNonQuery();
             con.Close();
             con.Open();
-            cmd = new SqlCommand("INSERT INTO SavingsEventLog VALUES('" + beforeAmount + "', 'A', '" + "" + "', '" + amountInput + "', '" + DateTime.Now + "', 'Admin Entry')", con);
+            cmd = new SqlCommand("INSERT INTO SavingsEventLog VALUES('" + beforeAmount + "', 'A', '" + "" + "', '" + amountInput + "', '" + DateTime.Now + "', 'Admin Entry', 'N')", con);
             cmd.ExecuteNonQuery();
             con.Close();
         }
 
         private void ClearBoxes()
         {
-            currBalTextBox.Clear();
-            CashTextBox.Clear();
-            BankTextBox.Clear();
+            memoTextBox.Clear();
+            amtTextBox.Text = "";
+            adminTextBox.Text = "";
+            depositCheckBox.Checked = false;
+            withdrawlCheckBox.Checked = false;
+            CashCheckbox.Checked = false;
         }
 
         private void depositCheckBox_CheckedChanged(object sender, EventArgs e)
