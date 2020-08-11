@@ -196,7 +196,7 @@ namespace Savings2
         {
             memoTextBox.Clear();
             amtTextBox.Text = "";
-            adminTextBox.Text = "";
+            AdminTextBox.Text = "";
             depositCheckBox.Checked = false;
             withdrawlCheckBox.Checked = false;
             CashCheckbox.Checked = false;
@@ -229,17 +229,11 @@ namespace Savings2
             string beforeAmount = currBalTextBox.Text;
             MessageBox.Show(message, title);
 
-            //Clears the textboxes
-            ClearBoxes();
-
             //Getting the amount inputs
-            string amountInput = adminTextBox.Text;
+            string amountInput = AdminTextBox.Text;
             int amount = Convert.ToInt32(amountInput);
-            currBalTextBox.AppendText(amount.ToString("0.00"));
             int cash = Convert.ToInt32(AdminCash.Text);
-            CashTextBox.AppendText(cash.ToString("0.00"));
             int bank = Convert.ToInt32(AdminBank.Text);
-            BankTextBox.AppendText(bank.ToString("0.00"));
 
             //Update balance and insert into EventLog
             con.Open();
@@ -247,16 +241,22 @@ namespace Savings2
             cmd.ExecuteNonQuery();
             con.Close();
             con.Open();
-            cmd = new SqlCommand("INSERT INTO SavingsEventLog VALUES('" + beforeAmount + "', 'A', '" + "" + "', '" + amountInput + "', '" + DateTime.Now + "', 'Admin Entry', 'N')", con);
+            cmd = new SqlCommand("INSERT INTO SavingsEventLog VALUES('" + beforeAmount + "', 'A', '" + "', '" + amountInput + "', '" + DateTime.Now + "', 'Admin Entry', '0')", con);
             cmd.ExecuteNonQuery();
             con.Close();
+
+            LoadValues();
+            AdminTextBox.Clear();
+            AdminBank.Clear();
+            AdminCash.Clear();
+            GetHistory();
         }
 
         private void ClearBoxes()
         {
             memoTextBox.Clear();
             amtTextBox.Text = "";
-            adminTextBox.Text = "";
+            AdminTextBox.Text = "";
             depositCheckBox.Checked = false;
             withdrawlCheckBox.Checked = false;
             CashCheckbox.Checked = false;

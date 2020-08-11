@@ -51,7 +51,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.adminEnterButton = new System.Windows.Forms.Button();
-            this.adminTextBox = new System.Windows.Forms.TextBox();
+            this.AdminTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.HistoryDataGridView = new System.Windows.Forms.DataGridView();
@@ -251,7 +251,7 @@
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.adminEnterButton);
-            this.tabPage2.Controls.Add(this.adminTextBox);
+            this.tabPage2.Controls.Add(this.AdminTextBox);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -267,14 +267,14 @@
             this.AdminBank.Location = new System.Drawing.Point(304, 56);
             this.AdminBank.Name = "AdminBank";
             this.AdminBank.Size = new System.Drawing.Size(168, 22);
-            this.AdminBank.TabIndex = 9;
+            this.AdminBank.TabIndex = 1;
             // 
             // AdminCash
             // 
             this.AdminCash.Location = new System.Drawing.Point(304, 89);
             this.AdminCash.Name = "AdminCash";
             this.AdminCash.Size = new System.Drawing.Size(168, 22);
-            this.AdminCash.TabIndex = 8;
+            this.AdminCash.TabIndex = 2;
             // 
             // label8
             // 
@@ -299,17 +299,17 @@
             this.adminEnterButton.Location = new System.Drawing.Point(198, 152);
             this.adminEnterButton.Name = "adminEnterButton";
             this.adminEnterButton.Size = new System.Drawing.Size(176, 42);
-            this.adminEnterButton.TabIndex = 5;
+            this.adminEnterButton.TabIndex = 3;
             this.adminEnterButton.Text = "ENTER";
             this.adminEnterButton.UseVisualStyleBackColor = true;
             this.adminEnterButton.Click += new System.EventHandler(this.AdminEnterButton_Click);
             // 
-            // adminTextBox
+            // AdminTextBox
             // 
-            this.adminTextBox.Location = new System.Drawing.Point(304, 22);
-            this.adminTextBox.Name = "adminTextBox";
-            this.adminTextBox.Size = new System.Drawing.Size(168, 22);
-            this.adminTextBox.TabIndex = 4;
+            this.AdminTextBox.Location = new System.Drawing.Point(304, 22);
+            this.AdminTextBox.Name = "AdminTextBox";
+            this.AdminTextBox.Size = new System.Drawing.Size(168, 22);
+            this.AdminTextBox.TabIndex = 0;
             // 
             // label4
             // 
@@ -418,7 +418,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button adminEnterButton;
-        private System.Windows.Forms.TextBox adminTextBox;
+        private System.Windows.Forms.TextBox AdminTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox memoTextBox;
         private System.Windows.Forms.Label label5;
