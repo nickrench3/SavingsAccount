@@ -274,26 +274,14 @@ namespace Savings2
 
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            /**Method to:
+             * Set the Deposit Checkbox to True
+             * Clear all of the checkboxes
+             * Load initial values again
+            **/
             depositCheckBox.Checked = true;
             ClearBoxes();
             LoadValues();
-            /*
-            //Select's balance from table for preset
-            cmd = new SqlCommand("SELECT Balance, Cash, Bank FROM SavingsAcct", con);
-            SqlDataReader dr = cmd.ExecuteReader();
-            if (dr.Read())
-            {
-                string balance = (dr["Balance"].ToString());
-                currBalTextBox.AppendText(balance + ".00");
-                beforeBalance = Convert.ToInt32(balance);
-                string bank = (dr["Bank"].ToString());
-                BankTextBox.AppendText(bank + ".00");
-                string cash = (dr["Cash"].ToString());
-                CashTextBox.AppendText(cash + ".00");
-            }
-            con.Close();
-            GetHistory();
-            */
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
