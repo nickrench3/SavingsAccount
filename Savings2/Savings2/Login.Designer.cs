@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.label1 = new System.Windows.Forms.Label();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,7 +44,7 @@
             this.label1.Location = new System.Drawing.Point(77, 43);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 16);
+            this.label1.Size = new System.Drawing.Size(132, 30);
             this.label1.TabIndex = 0;
             this.label1.Text = "Username";
             // 
@@ -53,7 +54,7 @@
             this.usernameTextBox.Location = new System.Drawing.Point(191, 37);
             this.usernameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(217, 26);
+            this.usernameTextBox.Size = new System.Drawing.Size(217, 44);
             this.usernameTextBox.TabIndex = 1;
             // 
             // label2
@@ -62,7 +63,7 @@
             this.label2.Location = new System.Drawing.Point(77, 94);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 16);
+            this.label2.Size = new System.Drawing.Size(126, 30);
             this.label2.TabIndex = 2;
             this.label2.Text = "Password";
             // 
@@ -73,7 +74,7 @@
             this.passwordTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '●';
-            this.passwordTextBox.Size = new System.Drawing.Size(217, 26);
+            this.passwordTextBox.Size = new System.Drawing.Size(217, 44);
             this.passwordTextBox.TabIndex = 3;
             // 
             // registerButton
@@ -96,7 +97,7 @@
             this.label3.Location = new System.Drawing.Point(187, 219);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(228, 16);
+            this.label3.Size = new System.Drawing.Size(488, 30);
             this.label3.TabIndex = 7;
             this.label3.Text = "------------------- or you can -------------------";
             // 
@@ -117,7 +118,7 @@
             // Login
             // 
             this.AcceptButton = this.loginButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(509, 352);
@@ -129,6 +130,7 @@
             this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Savings));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.CashCheckbox = new System.Windows.Forms.CheckBox();
@@ -75,7 +76,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(591, 446);
+            this.tabControl1.Size = new System.Drawing.Size(645, 446);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -98,8 +99,8 @@
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(583, 420);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Size = new System.Drawing.Size(678, 420);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Account Manager";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -256,8 +257,8 @@
             this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(583, 420);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Size = new System.Drawing.Size(637, 420);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Admin Portal";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -325,8 +326,8 @@
             this.tabPage3.Controls.Add(this.HistoryDataGridView);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(583, 420);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Size = new System.Drawing.Size(637, 420);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "History";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -342,17 +343,19 @@
             this.HistoryDataGridView.Location = new System.Drawing.Point(0, 0);
             this.HistoryDataGridView.Name = "HistoryDataGridView";
             this.HistoryDataGridView.ReadOnly = true;
-            this.HistoryDataGridView.Size = new System.Drawing.Size(585, 424);
+            this.HistoryDataGridView.RowHeadersWidth = 82;
+            this.HistoryDataGridView.Size = new System.Drawing.Size(632, 424);
             this.HistoryDataGridView.TabIndex = 0;
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(3, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(591, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(645, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -383,9 +386,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(591, 475);
+            this.ClientSize = new System.Drawing.Size(645, 475);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Savings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
             this.registerButton = new System.Windows.Forms.Button();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -57,7 +58,7 @@
             this.passwordTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '●';
-            this.passwordTextBox.Size = new System.Drawing.Size(217, 26);
+            this.passwordTextBox.Size = new System.Drawing.Size(217, 44);
             this.passwordTextBox.TabIndex = 9;
             // 
             // label2
@@ -66,7 +67,7 @@
             this.label2.Location = new System.Drawing.Point(77, 94);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 16);
+            this.label2.Size = new System.Drawing.Size(126, 30);
             this.label2.TabIndex = 8;
             this.label2.Text = "Password";
             // 
@@ -76,7 +77,7 @@
             this.usernameTextBox.Location = new System.Drawing.Point(191, 37);
             this.usernameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(217, 26);
+            this.usernameTextBox.Size = new System.Drawing.Size(217, 44);
             this.usernameTextBox.TabIndex = 7;
             // 
             // label1
@@ -85,14 +86,14 @@
             this.label1.Location = new System.Drawing.Point(77, 43);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 16);
+            this.label1.Size = new System.Drawing.Size(132, 30);
             this.label1.TabIndex = 6;
             this.label1.Text = "Username";
             // 
             // Register
             // 
             this.AcceptButton = this.registerButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(509, 352);
@@ -102,6 +103,7 @@
             this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
