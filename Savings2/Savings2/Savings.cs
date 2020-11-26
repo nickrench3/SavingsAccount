@@ -276,7 +276,8 @@ namespace Savings2
         {
             depositCheckBox.Checked = true;
             ClearBoxes();
-            con.Open();
+            LoadValues();
+            /*
             //Select's balance from table for preset
             cmd = new SqlCommand("SELECT Balance, Cash, Bank FROM SavingsAcct", con);
             SqlDataReader dr = cmd.ExecuteReader();
@@ -292,6 +293,7 @@ namespace Savings2
             }
             con.Close();
             GetHistory();
+            */
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
