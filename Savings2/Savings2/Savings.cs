@@ -51,6 +51,9 @@ namespace Savings2
             }
             //Gets the history from the EventLog
             GetHistory();
+
+            //Get Last Updated Date
+            GetLastUpdated();
         }
 
         private void EnterButton_Click(object sender, EventArgs e)
@@ -154,6 +157,8 @@ namespace Savings2
             //Gets the history from the EventLog
             GetHistory();
             ClearBoxes();
+            //Gets the last time the balance was updated
+            GetLastUpdated();
         }
 
         private void GetHistory()
@@ -166,6 +171,20 @@ namespace Savings2
             da.Fill(table);
             HistoryDataGridView.DataSource = table;
             HistoryDataGridView.AutoResizeColumns();
+            con.Close();
+        }
+
+        private void GetLastUpdated()
+        {
+            string SQL = "SELECT TOP 1 CONVERT(varchar, ExecutionTime, 1) AS LastUpdated FROM SavingsEventLog ORDER BY ExecutionTime DESC";
+            cmd = new SqlCommand(SQL, con);
+            con.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                string lastUpdated = (dr["LastUpdated"].ToString());
+                LastUpdated.AppendText(lastUpdated);
+            }
             con.Close();
         }
 
@@ -250,6 +269,7 @@ namespace Savings2
             AdminBank.Clear();
             AdminCash.Clear();
             GetHistory();
+            GetLastUpdated();
         }
 
         private void ClearBoxes()
@@ -257,6 +277,7 @@ namespace Savings2
             memoTextBox.Clear();
             amtTextBox.Text = "";
             AdminTextBox.Text = "";
+            LastUpdated.Text = "";
             depositCheckBox.Checked = false;
             withdrawlCheckBox.Checked = false;
             CashCheckbox.Checked = false;

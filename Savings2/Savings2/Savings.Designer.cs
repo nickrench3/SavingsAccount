@@ -60,6 +60,8 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label9 = new System.Windows.Forms.Label();
+            this.LastUpdated = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -73,14 +75,17 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(0, 27);
+            this.tabControl1.Location = new System.Drawing.Point(0, 52);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(645, 446);
+            this.tabControl1.Size = new System.Drawing.Size(1290, 858);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.LastUpdated);
+            this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.CashCheckbox);
             this.tabPage1.Controls.Add(this.CashTextBox);
             this.tabPage1.Controls.Add(this.label7);
@@ -97,10 +102,11 @@
             this.tabPage1.Controls.Add(this.currBalTextBox);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(8, 39);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage1.Size = new System.Drawing.Size(678, 420);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabPage1.Size = new System.Drawing.Size(1274, 811);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Account Manager";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -108,9 +114,10 @@
             // CashCheckbox
             // 
             this.CashCheckbox.AutoSize = true;
-            this.CashCheckbox.Location = new System.Drawing.Point(359, 261);
+            this.CashCheckbox.Location = new System.Drawing.Point(717, 567);
+            this.CashCheckbox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.CashCheckbox.Name = "CashCheckbox";
-            this.CashCheckbox.Size = new System.Drawing.Size(58, 20);
+            this.CashCheckbox.Size = new System.Drawing.Size(105, 34);
             this.CashCheckbox.TabIndex = 19;
             this.CashCheckbox.Text = "Cash";
             this.CashCheckbox.UseVisualStyleBackColor = true;
@@ -118,61 +125,68 @@
             // CashTextBox
             // 
             this.CashTextBox.Enabled = false;
-            this.CashTextBox.Location = new System.Drawing.Point(303, 89);
+            this.CashTextBox.Location = new System.Drawing.Point(605, 236);
+            this.CashTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.CashTextBox.Name = "CashTextBox";
-            this.CashTextBox.Size = new System.Drawing.Size(168, 22);
+            this.CashTextBox.Size = new System.Drawing.Size(332, 37);
             this.CashTextBox.TabIndex = 18;
             this.CashTextBox.TabStop = false;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(167, 95);
+            this.label7.Location = new System.Drawing.Point(333, 248);
+            this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(39, 16);
+            this.label7.Size = new System.Drawing.Size(73, 30);
             this.label7.TabIndex = 17;
             this.label7.Text = "Cash";
             // 
             // BankTextBox
             // 
             this.BankTextBox.Enabled = false;
-            this.BankTextBox.Location = new System.Drawing.Point(304, 56);
+            this.BankTextBox.Location = new System.Drawing.Point(607, 173);
+            this.BankTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.BankTextBox.Name = "BankTextBox";
-            this.BankTextBox.Size = new System.Drawing.Size(168, 22);
+            this.BankTextBox.Size = new System.Drawing.Size(332, 37);
             this.BankTextBox.TabIndex = 16;
             this.BankTextBox.TabStop = false;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(167, 62);
+            this.label6.Location = new System.Drawing.Point(333, 184);
+            this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 16);
+            this.label6.Size = new System.Drawing.Size(71, 30);
             this.label6.TabIndex = 15;
             this.label6.Text = "Bank";
             // 
             // memoTextBox
             // 
-            this.memoTextBox.Location = new System.Drawing.Point(303, 289);
+            this.memoTextBox.Location = new System.Drawing.Point(605, 621);
+            this.memoTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.memoTextBox.MaxLength = 200;
             this.memoTextBox.Name = "memoTextBox";
-            this.memoTextBox.Size = new System.Drawing.Size(168, 22);
+            this.memoTextBox.Size = new System.Drawing.Size(332, 37);
             this.memoTextBox.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(86, 289);
+            this.label5.Location = new System.Drawing.Point(171, 621);
+            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 16);
+            this.label5.Size = new System.Drawing.Size(85, 30);
             this.label5.TabIndex = 14;
             this.label5.Text = "Memo";
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(115, 330);
+            this.clearButton.Location = new System.Drawing.Point(229, 700);
+            this.clearButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(75, 33);
+            this.clearButton.Size = new System.Drawing.Size(150, 63);
             this.clearButton.TabIndex = 12;
             this.clearButton.Text = "CLEAR";
             this.clearButton.UseVisualStyleBackColor = true;
@@ -180,9 +194,10 @@
             // 
             // enterButton
             // 
-            this.enterButton.Location = new System.Drawing.Point(288, 330);
+            this.enterButton.Location = new System.Drawing.Point(575, 700);
+            this.enterButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.enterButton.Name = "enterButton";
-            this.enterButton.Size = new System.Drawing.Size(129, 33);
+            this.enterButton.Size = new System.Drawing.Size(258, 63);
             this.enterButton.TabIndex = 10;
             this.enterButton.Text = "ENTER";
             this.enterButton.UseVisualStyleBackColor = true;
@@ -190,27 +205,30 @@
             // 
             // amtTextBox
             // 
-            this.amtTextBox.Location = new System.Drawing.Point(303, 233);
+            this.amtTextBox.Location = new System.Drawing.Point(605, 513);
+            this.amtTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.amtTextBox.MaxLength = 6;
             this.amtTextBox.Name = "amtTextBox";
-            this.amtTextBox.Size = new System.Drawing.Size(168, 22);
+            this.amtTextBox.Size = new System.Drawing.Size(332, 37);
             this.amtTextBox.TabIndex = 8;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(86, 239);
+            this.label2.Location = new System.Drawing.Point(171, 525);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 16);
+            this.label2.Size = new System.Drawing.Size(101, 30);
             this.label2.TabIndex = 9;
             this.label2.Text = "Amount";
             // 
             // withdrawlCheckBox
             // 
             this.withdrawlCheckBox.AutoSize = true;
-            this.withdrawlCheckBox.Location = new System.Drawing.Point(115, 193);
+            this.withdrawlCheckBox.Location = new System.Drawing.Point(229, 436);
+            this.withdrawlCheckBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.withdrawlCheckBox.Name = "withdrawlCheckBox";
-            this.withdrawlCheckBox.Size = new System.Drawing.Size(85, 20);
+            this.withdrawlCheckBox.Size = new System.Drawing.Size(159, 34);
             this.withdrawlCheckBox.TabIndex = 4;
             this.withdrawlCheckBox.Text = "Withdrawl";
             this.withdrawlCheckBox.UseVisualStyleBackColor = true;
@@ -219,9 +237,10 @@
             // depositCheckBox
             // 
             this.depositCheckBox.AutoSize = true;
-            this.depositCheckBox.Location = new System.Drawing.Point(115, 153);
+            this.depositCheckBox.Location = new System.Drawing.Point(229, 359);
+            this.depositCheckBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.depositCheckBox.Name = "depositCheckBox";
-            this.depositCheckBox.Size = new System.Drawing.Size(74, 20);
+            this.depositCheckBox.Size = new System.Drawing.Size(132, 34);
             this.depositCheckBox.TabIndex = 3;
             this.depositCheckBox.Text = "Deposit";
             this.depositCheckBox.UseVisualStyleBackColor = true;
@@ -230,18 +249,20 @@
             // currBalTextBox
             // 
             this.currBalTextBox.Enabled = false;
-            this.currBalTextBox.Location = new System.Drawing.Point(304, 22);
+            this.currBalTextBox.Location = new System.Drawing.Point(607, 107);
+            this.currBalTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.currBalTextBox.Name = "currBalTextBox";
-            this.currBalTextBox.Size = new System.Drawing.Size(168, 22);
+            this.currBalTextBox.Size = new System.Drawing.Size(332, 37);
             this.currBalTextBox.TabIndex = 2;
             this.currBalTextBox.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(86, 28);
+            this.label1.Location = new System.Drawing.Point(171, 119);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 16);
+            this.label1.Size = new System.Drawing.Size(297, 30);
             this.label1.TabIndex = 1;
             this.label1.Text = "Current Account Balance";
             // 
@@ -255,51 +276,57 @@
             this.tabPage2.Controls.Add(this.AdminTextBox);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(8, 39);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage2.Size = new System.Drawing.Size(637, 420);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabPage2.Size = new System.Drawing.Size(1274, 811);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Admin Portal";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // AdminBank
             // 
-            this.AdminBank.Location = new System.Drawing.Point(304, 56);
+            this.AdminBank.Location = new System.Drawing.Point(608, 108);
+            this.AdminBank.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.AdminBank.Name = "AdminBank";
-            this.AdminBank.Size = new System.Drawing.Size(168, 22);
+            this.AdminBank.Size = new System.Drawing.Size(332, 37);
             this.AdminBank.TabIndex = 1;
             // 
             // AdminCash
             // 
-            this.AdminCash.Location = new System.Drawing.Point(304, 89);
+            this.AdminCash.Location = new System.Drawing.Point(608, 171);
+            this.AdminCash.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.AdminCash.Name = "AdminCash";
-            this.AdminCash.Size = new System.Drawing.Size(168, 22);
+            this.AdminCash.Size = new System.Drawing.Size(332, 37);
             this.AdminCash.TabIndex = 2;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(166, 62);
+            this.label8.Location = new System.Drawing.Point(332, 119);
+            this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(39, 16);
+            this.label8.Size = new System.Drawing.Size(71, 30);
             this.label8.TabIndex = 7;
             this.label8.Text = "Bank";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(166, 95);
+            this.label3.Location = new System.Drawing.Point(332, 183);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 16);
+            this.label3.Size = new System.Drawing.Size(73, 30);
             this.label3.TabIndex = 6;
             this.label3.Text = "Cash";
             // 
             // adminEnterButton
             // 
-            this.adminEnterButton.Location = new System.Drawing.Point(198, 152);
+            this.adminEnterButton.Location = new System.Drawing.Point(396, 292);
+            this.adminEnterButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.adminEnterButton.Name = "adminEnterButton";
-            this.adminEnterButton.Size = new System.Drawing.Size(176, 42);
+            this.adminEnterButton.Size = new System.Drawing.Size(352, 81);
             this.adminEnterButton.TabIndex = 3;
             this.adminEnterButton.Text = "ENTER";
             this.adminEnterButton.UseVisualStyleBackColor = true;
@@ -307,27 +334,30 @@
             // 
             // AdminTextBox
             // 
-            this.AdminTextBox.Location = new System.Drawing.Point(304, 22);
+            this.AdminTextBox.Location = new System.Drawing.Point(608, 42);
+            this.AdminTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.AdminTextBox.Name = "AdminTextBox";
-            this.AdminTextBox.Size = new System.Drawing.Size(168, 22);
+            this.AdminTextBox.Size = new System.Drawing.Size(332, 37);
             this.AdminTextBox.TabIndex = 0;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(85, 28);
+            this.label4.Location = new System.Drawing.Point(170, 54);
+            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(179, 16);
+            this.label4.Size = new System.Drawing.Size(345, 30);
             this.label4.TabIndex = 3;
             this.label4.Text = "If balance is know, enter here";
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.HistoryDataGridView);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(8, 39);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage3.Size = new System.Drawing.Size(637, 420);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabPage3.Size = new System.Drawing.Size(1274, 811);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "History";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -341,21 +371,23 @@
             this.HistoryDataGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.HistoryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.HistoryDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.HistoryDataGridView.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.HistoryDataGridView.Name = "HistoryDataGridView";
             this.HistoryDataGridView.ReadOnly = true;
             this.HistoryDataGridView.RowHeadersWidth = 82;
-            this.HistoryDataGridView.Size = new System.Drawing.Size(632, 424);
+            this.HistoryDataGridView.Size = new System.Drawing.Size(1264, 815);
             this.HistoryDataGridView.TabIndex = 0;
             // 
             // menuStrip1
             // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(3, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(645, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1290, 40);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -365,32 +397,53 @@
             this.refreshToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 22);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(72, 36);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // refreshToolStripMenuItem
             // 
             this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(228, 44);
             this.refreshToolStripMenuItem.Text = "Refresh";
             this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(228, 44);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(24, 26);
+            this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(164, 30);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Last Updated";
+            // 
+            // LastUpdated
+            // 
+            this.LastUpdated.Location = new System.Drawing.Point(216, 19);
+            this.LastUpdated.Margin = new System.Windows.Forms.Padding(6);
+            this.LastUpdated.Name = "LastUpdated";
+            this.LastUpdated.ReadOnly = true;
+            this.LastUpdated.Size = new System.Drawing.Size(126, 37);
+            this.LastUpdated.TabIndex = 21;
+            this.LastUpdated.TabStop = false;
+            // 
             // Savings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(645, 475);
+            this.ClientSize = new System.Drawing.Size(1290, 913);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Savings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Savings";
@@ -441,5 +494,7 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.TextBox LastUpdated;
+        private System.Windows.Forms.Label label9;
     }
 }
