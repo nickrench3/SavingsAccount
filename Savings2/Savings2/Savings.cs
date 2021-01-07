@@ -303,6 +303,7 @@ namespace Savings2
             depositCheckBox.Checked = true;
             ClearBoxes();
             LoadValues();
+            GetLastUpdated();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
