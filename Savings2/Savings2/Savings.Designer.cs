@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Savings));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.LastUpdated = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.CashCheckbox = new System.Windows.Forms.CheckBox();
             this.CashTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -60,8 +62,11 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label9 = new System.Windows.Forms.Label();
-            this.LastUpdated = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.DateTextBox = new System.Windows.Forms.TextBox();
+            this.TotalTextBox = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.AdminEnterButton2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -76,7 +81,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(0, 52);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(6);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1290, 858);
@@ -103,19 +108,39 @@
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(8, 39);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(6);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(6);
             this.tabPage1.Size = new System.Drawing.Size(1274, 811);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Account Manager";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // LastUpdated
+            // 
+            this.LastUpdated.Location = new System.Drawing.Point(216, 19);
+            this.LastUpdated.Margin = new System.Windows.Forms.Padding(6);
+            this.LastUpdated.Name = "LastUpdated";
+            this.LastUpdated.ReadOnly = true;
+            this.LastUpdated.Size = new System.Drawing.Size(126, 37);
+            this.LastUpdated.TabIndex = 21;
+            this.LastUpdated.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(24, 26);
+            this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(164, 30);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Last Updated";
+            // 
             // CashCheckbox
             // 
             this.CashCheckbox.AutoSize = true;
             this.CashCheckbox.Location = new System.Drawing.Point(717, 567);
-            this.CashCheckbox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.CashCheckbox.Margin = new System.Windows.Forms.Padding(6);
             this.CashCheckbox.Name = "CashCheckbox";
             this.CashCheckbox.Size = new System.Drawing.Size(105, 34);
             this.CashCheckbox.TabIndex = 19;
@@ -126,7 +151,7 @@
             // 
             this.CashTextBox.Enabled = false;
             this.CashTextBox.Location = new System.Drawing.Point(605, 236);
-            this.CashTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.CashTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.CashTextBox.Name = "CashTextBox";
             this.CashTextBox.Size = new System.Drawing.Size(332, 37);
             this.CashTextBox.TabIndex = 18;
@@ -146,7 +171,7 @@
             // 
             this.BankTextBox.Enabled = false;
             this.BankTextBox.Location = new System.Drawing.Point(607, 173);
-            this.BankTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.BankTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.BankTextBox.Name = "BankTextBox";
             this.BankTextBox.Size = new System.Drawing.Size(332, 37);
             this.BankTextBox.TabIndex = 16;
@@ -165,7 +190,7 @@
             // memoTextBox
             // 
             this.memoTextBox.Location = new System.Drawing.Point(605, 621);
-            this.memoTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.memoTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.memoTextBox.MaxLength = 200;
             this.memoTextBox.Name = "memoTextBox";
             this.memoTextBox.Size = new System.Drawing.Size(332, 37);
@@ -184,7 +209,7 @@
             // clearButton
             // 
             this.clearButton.Location = new System.Drawing.Point(229, 700);
-            this.clearButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.clearButton.Margin = new System.Windows.Forms.Padding(6);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(150, 63);
             this.clearButton.TabIndex = 12;
@@ -195,7 +220,7 @@
             // enterButton
             // 
             this.enterButton.Location = new System.Drawing.Point(575, 700);
-            this.enterButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.enterButton.Margin = new System.Windows.Forms.Padding(6);
             this.enterButton.Name = "enterButton";
             this.enterButton.Size = new System.Drawing.Size(258, 63);
             this.enterButton.TabIndex = 10;
@@ -206,7 +231,7 @@
             // amtTextBox
             // 
             this.amtTextBox.Location = new System.Drawing.Point(605, 513);
-            this.amtTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.amtTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.amtTextBox.MaxLength = 6;
             this.amtTextBox.Name = "amtTextBox";
             this.amtTextBox.Size = new System.Drawing.Size(332, 37);
@@ -226,7 +251,7 @@
             // 
             this.withdrawlCheckBox.AutoSize = true;
             this.withdrawlCheckBox.Location = new System.Drawing.Point(229, 436);
-            this.withdrawlCheckBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.withdrawlCheckBox.Margin = new System.Windows.Forms.Padding(6);
             this.withdrawlCheckBox.Name = "withdrawlCheckBox";
             this.withdrawlCheckBox.Size = new System.Drawing.Size(159, 34);
             this.withdrawlCheckBox.TabIndex = 4;
@@ -238,7 +263,7 @@
             // 
             this.depositCheckBox.AutoSize = true;
             this.depositCheckBox.Location = new System.Drawing.Point(229, 359);
-            this.depositCheckBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.depositCheckBox.Margin = new System.Windows.Forms.Padding(6);
             this.depositCheckBox.Name = "depositCheckBox";
             this.depositCheckBox.Size = new System.Drawing.Size(132, 34);
             this.depositCheckBox.TabIndex = 3;
@@ -250,7 +275,7 @@
             // 
             this.currBalTextBox.Enabled = false;
             this.currBalTextBox.Location = new System.Drawing.Point(607, 107);
-            this.currBalTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.currBalTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.currBalTextBox.Name = "currBalTextBox";
             this.currBalTextBox.Size = new System.Drawing.Size(332, 37);
             this.currBalTextBox.TabIndex = 2;
@@ -268,6 +293,11 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.AdminEnterButton2);
+            this.tabPage2.Controls.Add(this.label11);
+            this.tabPage2.Controls.Add(this.TotalTextBox);
+            this.tabPage2.Controls.Add(this.DateTextBox);
+            this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.AdminBank);
             this.tabPage2.Controls.Add(this.AdminCash);
             this.tabPage2.Controls.Add(this.label8);
@@ -277,9 +307,9 @@
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage2.Location = new System.Drawing.Point(8, 39);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(6);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(6);
             this.tabPage2.Size = new System.Drawing.Size(1274, 811);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Admin Portal";
@@ -288,7 +318,7 @@
             // AdminBank
             // 
             this.AdminBank.Location = new System.Drawing.Point(608, 108);
-            this.AdminBank.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.AdminBank.Margin = new System.Windows.Forms.Padding(6);
             this.AdminBank.Name = "AdminBank";
             this.AdminBank.Size = new System.Drawing.Size(332, 37);
             this.AdminBank.TabIndex = 1;
@@ -296,7 +326,7 @@
             // AdminCash
             // 
             this.AdminCash.Location = new System.Drawing.Point(608, 171);
-            this.AdminCash.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.AdminCash.Margin = new System.Windows.Forms.Padding(6);
             this.AdminCash.Name = "AdminCash";
             this.AdminCash.Size = new System.Drawing.Size(332, 37);
             this.AdminCash.TabIndex = 2;
@@ -324,7 +354,7 @@
             // adminEnterButton
             // 
             this.adminEnterButton.Location = new System.Drawing.Point(396, 292);
-            this.adminEnterButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.adminEnterButton.Margin = new System.Windows.Forms.Padding(6);
             this.adminEnterButton.Name = "adminEnterButton";
             this.adminEnterButton.Size = new System.Drawing.Size(352, 81);
             this.adminEnterButton.TabIndex = 3;
@@ -335,7 +365,7 @@
             // AdminTextBox
             // 
             this.AdminTextBox.Location = new System.Drawing.Point(608, 42);
-            this.AdminTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.AdminTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.AdminTextBox.Name = "AdminTextBox";
             this.AdminTextBox.Size = new System.Drawing.Size(332, 37);
             this.AdminTextBox.TabIndex = 0;
@@ -354,9 +384,9 @@
             // 
             this.tabPage3.Controls.Add(this.HistoryDataGridView);
             this.tabPage3.Location = new System.Drawing.Point(8, 39);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(6);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(6);
             this.tabPage3.Size = new System.Drawing.Size(1274, 811);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "History";
@@ -371,7 +401,7 @@
             this.HistoryDataGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.HistoryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.HistoryDataGridView.Location = new System.Drawing.Point(0, 0);
-            this.HistoryDataGridView.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.HistoryDataGridView.Margin = new System.Windows.Forms.Padding(6);
             this.HistoryDataGridView.Name = "HistoryDataGridView";
             this.HistoryDataGridView.ReadOnly = true;
             this.HistoryDataGridView.RowHeadersWidth = 82;
@@ -386,7 +416,6 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(1290, 40);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
@@ -414,25 +443,53 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // label9
+            // label10
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(24, 26);
-            this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(164, 30);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "Last Updated";
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(70, 525);
+            this.label10.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(359, 30);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "How much have I saved since:";
             // 
-            // LastUpdated
+            // DateTextBox
             // 
-            this.LastUpdated.Location = new System.Drawing.Point(216, 19);
-            this.LastUpdated.Margin = new System.Windows.Forms.Padding(6);
-            this.LastUpdated.Name = "LastUpdated";
-            this.LastUpdated.ReadOnly = true;
-            this.LastUpdated.Size = new System.Drawing.Size(126, 37);
-            this.LastUpdated.TabIndex = 21;
-            this.LastUpdated.TabStop = false;
+            this.DateTextBox.Location = new System.Drawing.Point(470, 518);
+            this.DateTextBox.Margin = new System.Windows.Forms.Padding(6);
+            this.DateTextBox.Name = "DateTextBox";
+            this.DateTextBox.Size = new System.Drawing.Size(198, 37);
+            this.DateTextBox.TabIndex = 9;
+            // 
+            // TotalTextBox
+            // 
+            this.TotalTextBox.Location = new System.Drawing.Point(470, 591);
+            this.TotalTextBox.Margin = new System.Windows.Forms.Padding(6);
+            this.TotalTextBox.Name = "TotalTextBox";
+            this.TotalTextBox.ReadOnly = true;
+            this.TotalTextBox.Size = new System.Drawing.Size(198, 37);
+            this.TotalTextBox.TabIndex = 10;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(358, 598);
+            this.label11.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(70, 30);
+            this.label11.TabIndex = 11;
+            this.label11.Text = "Total";
+            // 
+            // AdminEnterButton2
+            // 
+            this.AdminEnterButton2.Location = new System.Drawing.Point(314, 674);
+            this.AdminEnterButton2.Margin = new System.Windows.Forms.Padding(6);
+            this.AdminEnterButton2.Name = "AdminEnterButton2";
+            this.AdminEnterButton2.Size = new System.Drawing.Size(182, 81);
+            this.AdminEnterButton2.TabIndex = 12;
+            this.AdminEnterButton2.Text = "ENTER";
+            this.AdminEnterButton2.UseVisualStyleBackColor = true;
+            this.AdminEnterButton2.Click += new System.EventHandler(this.AdminEnterButton2_Click);
             // 
             // Savings
             // 
@@ -443,7 +500,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Savings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Savings";
@@ -496,5 +553,10 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.TextBox LastUpdated;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button AdminEnterButton2;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox TotalTextBox;
+        private System.Windows.Forms.TextBox DateTextBox;
+        private System.Windows.Forms.Label label10;
     }
 }

@@ -310,5 +310,41 @@ namespace Savings2
         {
             System.Windows.Forms.Application.Exit();
         }
+
+        private void AdminEnterButton2_Click(object sender, EventArgs e)
+        {
+            string date = DateTextBox.Text.Trim();
+            string SQL = "";
+            string firstTotalInput = "";
+            string secondTotalInput = "";
+            
+            SQL = "SELECT TOP 1 NewBalance FROM SavingsEventLog WHERE ExecutionTime <= '"+date+"' ORDER BY ExecutionTime DESC";
+            cmd = new SqlCommand(SQL, con);
+            con.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                firstTotalInput = (dr["NewBalance"].ToString());
+            }
+            con.Close();
+
+            SQL = "SELECT TOP 1 NewBalance FROM SavingsEventLog WHERE ExecutionTime > '" + date + "' ORDER BY ExecutionTime DESC";
+            cmd = new SqlCommand(SQL, con);
+            con.Open();
+            SqlDataReader dr2 = cmd.ExecuteReader();
+            if (dr2.Read())
+            {
+                secondTotalInput = (dr2["NewBalance"].ToString());
+            }
+            con.Close();
+
+
+            double firstTotal = Convert.ToDouble(firstTotalInput);
+            double secondTotal = Convert.ToDouble(secondTotalInput);
+            double total = secondTotal - firstTotal;
+
+            TotalTextBox.Text = total.ToString();
+        }
+
     }
 }
