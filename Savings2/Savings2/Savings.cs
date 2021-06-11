@@ -82,11 +82,11 @@ namespace Savings2
                 con.Open();
 
                 //Looks at if the transacation will be a deposit and cash
+                amount = Convert.ToInt32(amtTextBox.Text);
                 if (depositCheckBox.Checked == true && CashCheckbox.Checked == true)
                 {
                     depositCheckBox.Checked = true;
                     withdrawlCheckBox.Checked = false;
-                    amount = Convert.ToInt32(amtTextBox.Text);
                     finalBalance = newBalance + amount;
                     cashBalance = cashBalance + amount;
                     cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "', Cash = '" + cashBalance + "'", con);
@@ -100,7 +100,6 @@ namespace Savings2
                     {
                         depositCheckBox.Checked = true;
                         withdrawlCheckBox.Checked = false;
-                        amount = Convert.ToInt32(amtTextBox.Text);
                         finalBalance = newBalance + amount;
                         bankBalance = bankBalance + amount;
                         cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "', Bank = '" + bankBalance + "'", con);
@@ -114,7 +113,6 @@ namespace Savings2
                         {
                             depositCheckBox.Checked = false;
                             withdrawlCheckBox.Checked = true;
-                            amount = Convert.ToInt32(amtTextBox.Text);
                             finalBalance = newBalance - amount;
                             cashBalance = cashBalance - amount;
                             cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "', Cash = '" + cashBalance + "'", con);
@@ -128,7 +126,6 @@ namespace Savings2
                             {
                                 depositCheckBox.Checked = false;
                                 withdrawlCheckBox.Checked = true;
-                                amount = Convert.ToInt32(amtTextBox.Text);
                                 finalBalance = newBalance - amount;
                                 bankBalance = bankBalance - amount;
                                 cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "', Bank = '" + bankBalance + "'", con);
@@ -145,6 +142,7 @@ namespace Savings2
             RecordEvent();
             //Gets the history from the EventLog
             GetHistory();
+            //Clears the boxes to ensure a clean experience
             ClearBoxes();
             //Gets the last time the balance was updated
             GetLastUpdated();

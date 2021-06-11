@@ -16,7 +16,6 @@ namespace Savings2
 
         private void registerButton_Click(object sender, EventArgs e)
         {
-
             conSecure.Open();
             SqlDataAdapter sda = new SqlDataAdapter("SELECT LoginName FROM Login WHERE LoginName ='" + usernameTextBox.Text.Trim() + "'", conSecure);
             DataTable dt = new DataTable();
