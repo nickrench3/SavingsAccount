@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Savings2
 {
@@ -89,8 +89,7 @@ namespace Savings2
                     amount = Convert.ToInt32(amtTextBox.Text);
                     finalBalance = newBalance + amount;
                     cashBalance = cashBalance + amount;
-                    CashTextBox.AppendText(cashBalance.ToString("0.00"));
-                    cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "', Cash = '"+cashBalance+"'", con);
+                    cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "', Cash = '" + cashBalance + "'", con);
                     cmd.ExecuteNonQuery();
                     con.Close();
                 }
@@ -104,7 +103,6 @@ namespace Savings2
                         amount = Convert.ToInt32(amtTextBox.Text);
                         finalBalance = newBalance + amount;
                         bankBalance = bankBalance + amount;
-                        BankTextBox.AppendText(bankBalance.ToString("0.00"));
                         cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "', Bank = '" + bankBalance + "'", con);
                         cmd.ExecuteNonQuery();
                         con.Close();
@@ -119,8 +117,7 @@ namespace Savings2
                             amount = Convert.ToInt32(amtTextBox.Text);
                             finalBalance = newBalance - amount;
                             cashBalance = cashBalance - amount;
-                            CashTextBox.AppendText(cashBalance.ToString("0.00"));
-                            cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "', Cash = '"+cashBalance + "'", con);
+                            cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "', Cash = '" + cashBalance + "'", con);
                             cmd.ExecuteNonQuery();
                             con.Close();
                         }
@@ -134,7 +131,6 @@ namespace Savings2
                                 amount = Convert.ToInt32(amtTextBox.Text);
                                 finalBalance = newBalance - amount;
                                 bankBalance = bankBalance - amount;
-                                BankTextBox.AppendText(bankBalance.ToString("0.00"));
                                 cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + finalBalance + "', Bank = '" + bankBalance + "'", con);
                                 cmd.ExecuteNonQuery();
                                 con.Close();
@@ -183,7 +179,7 @@ namespace Savings2
 
         public void RecordEvent()
         {
-            con.Open();;
+            con.Open();
             int beforeAmount = beforeBalance;
             string amountChanged = amtTextBox.Text;
             string newAmount = currBalTextBox.Text;
@@ -239,21 +235,34 @@ namespace Savings2
             string message = "Balance updated";
             string title = "Savings Account Admin";
             string beforeAmount = currBalTextBox.Text;
+            double convertBefore = Convert.ToDouble(beforeAmount);
+            int before = (int)convertBefore;
             MessageBox.Show(message, title);
 
             //Getting the amount inputs
             string amountInput = AdminTextBox.Text;
             int amount = Convert.ToInt32(amountInput);
+            amountInput = amountInput + ".00";
             int cash = Convert.ToInt32(AdminCash.Text);
             int bank = Convert.ToInt32(AdminBank.Text);
+            int difference;
+
+            if (before < amount)
+            {
+                difference = amount - before;
+            }
+            else
+            {
+                difference = before - amount;
+            }
 
             //Update balance and insert into EventLog
             con.Open();
-            cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + amount + "', Bank = '"+bank+"', Cash = '"+cash+"'", con);
+            cmd = new SqlCommand("UPDATE SavingsAcct set Balance='" + amount + "', Bank = '" + bank + "', Cash = '" + cash + "'", con);
             cmd.ExecuteNonQuery();
             con.Close();
             con.Open();
-            cmd = new SqlCommand("INSERT INTO SavingsEventLog VALUES('" + beforeAmount + "', 'A', '" + "', '" + amountInput + "', '" + DateTime.Now + "', 'Admin Entry', '0')", con);
+            cmd = new SqlCommand("INSERT INTO SavingsEventLog VALUES('" + before + "', 'A', '" + difference +  "', '" + amountInput + "', '" + DateTime.Now + "', 'Admin Entry', '0')", con);
             cmd.ExecuteNonQuery();
             con.Close();
 
@@ -301,17 +310,17 @@ namespace Savings2
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            Application.Exit();
         }
 
         private void AdminEnterButton2_Click(object sender, EventArgs e)
         {
             string date = DateTextBox.Text.Trim();
-            string SQL = "";
+            string SQL;
             string firstTotalInput = "";
             string secondTotalInput = "";
-            
-            SQL = "SELECT TOP 1 NewBalance FROM SavingsEventLog WHERE ExecutionTime <= '"+date+"' ORDER BY ExecutionTime DESC";
+
+            SQL = "SELECT TOP 1 NewBalance FROM SavingsEventLog WHERE ExecutionTime <= '" + date + "' ORDER BY ExecutionTime DESC";
             cmd = new SqlCommand(SQL, con);
             con.Open();
             SqlDataReader dr = cmd.ExecuteReader();

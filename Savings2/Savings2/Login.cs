@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Data;
-using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Net;
 using System.Net.Sockets;
+using System.Windows.Forms;
 
 namespace Savings2
 {
@@ -37,7 +37,7 @@ namespace Savings2
             sda.Fill(dt);
             if (dt.Rows.Count == 1)
             {
-                cmd = new SqlCommand("INSERT LOGINEVENTLOG VALUES('" + usernameTextBox.Text.Trim() + "', '" + DateTime.Now + "', 'Savings App', '"+LastIP+"', '"+HostName+"')", conSecure);
+                cmd = new SqlCommand("INSERT LOGINEVENTLOG VALUES('" + usernameTextBox.Text.Trim() + "', '" + DateTime.Now + "', 'Savings App', '" + LastIP + "', '" + HostName + "')", conSecure);
                 cmd.ExecuteNonQuery();
                 conSecure.Close();
                 Savings savings = new Savings();
@@ -88,7 +88,7 @@ namespace Savings2
         private void Savings_FormClosed(object send, FormClosedEventArgs e)
         {
             this.Close();
-            
+
         }
 
         private void registerButton_Click(object sender, EventArgs e)
